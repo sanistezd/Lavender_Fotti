@@ -3,10 +3,16 @@ import { useEffect, useState, useRef } from 'react';
 import styles from './OrderModal.module.css';
 import { X, ImagePlus, Sparkles, ArrowRight, FileImage, Trash2 } from 'lucide-react';
 
-export default function OrderModal({ isOpen, onClose, serviceName }) {
-  const [files, setFiles] = useState([]);
+interface OrderModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  serviceName?: string;
+}
+
+export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalProps) {
+  const [files, setFiles] = useState<{file: File, name: string, preview: string}[]>([]);
   const [paymentType, setPaymentType] = useState('full'); // 'full' or 'after'
-  const fileInputRef = useRef(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (isOpen) {
@@ -26,7 +32,7 @@ export default function OrderModal({ isOpen, onClose, serviceName }) {
     fileInputRef.current?.click();
   };
 
-  const handleFileChange = (e) => {
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const newFiles = Array.from(e.target.files).map(file => ({
         file,

@@ -5,11 +5,11 @@ import styles from './Portfolio.module.css';
 const categories = ['Все', 'Premium', 'Быстрое', 'Редактирование'];
 
 const examples = [
-  { id: 1, category: 'Premium', title: 'Оживление пейзажа', type: 'animated-image', src: 'https://images.unsplash.com/photo-1506744626753-edaeb5d4c82a?q=80&w=600&h=800&fit=crop' },
-  { id: 2, category: 'Быстрое', title: 'Анимация портрета', type: 'animated-image', src: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&h=800&fit=crop' },
+  { id: 1, category: 'Premium', title: 'Оживление пейзажа', type: 'video', src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4' },
+  { id: 2, category: 'Быстрое', title: 'Анимация портрета', type: 'video', src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4' },
   { id: 3, category: 'Редактирование', title: 'Цветокоррекция', type: 'image', src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&h=800&fit=crop' },
-  { id: 4, category: 'Premium', title: 'Видео-коллаж', type: 'animated-image', src: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=600&h=800&fit=crop' },
-  { id: 5, category: 'Быстрое', title: 'Оживление питомца', type: 'animated-image', src: 'https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=600&h=800&fit=crop' },
+  { id: 4, category: 'Premium', title: 'Видео-коллаж', type: 'video', src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4' },
+  { id: 5, category: 'Быстрое', title: 'Оживление питомца', type: 'video', src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4' },
   { id: 6, category: 'Редактирование', title: 'Ретушь фото', type: 'image', src: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=600&h=800&fit=crop' },
 ];
 

@@ -11,8 +11,8 @@ export default function Hero() {
     <section className={styles.hero}>
       <header className={styles.header}>
         <div className={styles.logo}>
-          <img src="/mascot.png" alt="Mascot" className={styles.logoMascot} onError={(e) => { e.target.style.display = 'none'; }} />
-          HighQuality
+          <img src="/mascot.png" alt="Lavender Fotti Logo" className={styles.logoMascot} onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+          Lavender Fotti
         </div>
         <nav className={styles.nav}>
           <button className={styles.navBtn} onClick={() => scrollTo('services')}>Услуги</button>
@@ -36,7 +36,7 @@ export default function Hero() {
                 src="/mascot.png" 
                 alt="Lavender Fotti Mascot" 
                 className={styles.inlineMascot}
-                onError={(e) => { e.target.src = "https://placehold.co/180x180/CBAA5C/white?text=Mascot"; }}
+                onError={(e) => { e.currentTarget.src = "https://placehold.co/180x180/CBAA5C/white?text=Mascot"; }}
               />
             </div>
           </div>
@@ -60,7 +60,7 @@ export default function Hero() {
             src="/mascot.png" 
             alt="Lavender Fotti Mascot" 
             className={styles.mainMascot}
-            onError={(e) => { e.target.src = "https://placehold.co/500x500/CBAA5C/white?text=Mascot"; }}
+            onError={(e) => { e.currentTarget.src = "https://placehold.co/500x500/CBAA5C/white?text=Mascot"; }}
           />
         </div>
       </div>
