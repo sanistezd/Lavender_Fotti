@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { X } from 'lucide-react';
 import styles from './Portfolio.module.css';
 
 const categories = ['Все', 'Premium', 'Быстрое', 'Редактирование'];
@@ -15,6 +16,7 @@ const examples = [
 
 export default function Portfolio() {
   const [activeTab, setActiveTab] = useState('Все');
+  const [selectedMedia, setSelectedMedia] = useState<{type: string, src: string} | null>(null);
 
   const filteredExamples = activeTab === 'Все' 
     ? examples 
@@ -53,13 +55,34 @@ export default function Portfolio() {
             ) : (
               <img src={item.src} alt={item.title} className={styles.itemImage} />
             )}
-            <div className={styles.itemOverlay}>
-              <h3 className={styles.itemTitle}>{item.title}</h3>
-              <span className={styles.itemCategory}>{item.category}</span>
+            <div 
+              className={styles.itemOverlay} 
+              onClick={() => setSelectedMedia({ type: item.type, src: item.src })}
+            >
+              <div className={styles.overlayContent}>
+                <h3 className={styles.itemTitle}>{item.title}</h3>
+                <span className={styles.itemCategory}>{item.category}</span>
+                <span className={styles.expandHint}>Нажмите, чтобы открыть</span>
+              </div>
             </div>
           </div>
         ))}
       </div>
+
+      {selectedMedia && (
+        <div className={styles.lightbox} onClick={() => setSelectedMedia(null)}>
+          <button className={styles.lightboxClose} onClick={() => setSelectedMedia(null)}>
+            <X size={32} />
+          </button>
+          <div className={styles.lightboxContent} onClick={e => e.stopPropagation()}>
+            {selectedMedia.type === 'video' ? (
+              <video src={selectedMedia.src} controls autoPlay className={styles.lightboxMedia} />
+            ) : (
+              <img src={selectedMedia.src} alt="Full screen" className={styles.lightboxMedia} />
+            )}
+          </div>
+        </div>
+      )}
     </section>
   );
 }
