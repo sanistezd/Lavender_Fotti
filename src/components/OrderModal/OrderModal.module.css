@@ -1,0 +1,344 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+  padding: 1rem;
+}
+
+.modal {
+  background: var(--color-bg-ivory);
+  width: 100%;
+  max-width: 600px;
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+  border: 1px solid var(--color-border);
+}
+
+.closeBtn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.closeBtn:hover {
+  background: var(--color-gold-light);
+  transform: scale(1.05);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.mascot {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.headerText {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-family: var(--font-playfair), serif;
+  font-size: 1.8rem;
+  color: var(--color-text-dark);
+}
+
+.subtitle {
+  color: #666;
+  font-size: 1rem;
+}
+
+.stepGroup {
+  margin-bottom: 2rem;
+}
+
+.stepHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.stepNumber {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--color-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: var(--color-gold-dark);
+}
+
+.stepTitle {
+  font-size: 1.1rem;
+  color: var(--color-text-dark);
+  font-weight: 500;
+}
+
+.uploadArea {
+  border: 1px dashed var(--color-gold);
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: rgba(255, 255, 240, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.uploadArea:hover {
+  background: rgba(203, 170, 92, 0.1);
+}
+
+.uploadIcon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid var(--color-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold-dark);
+}
+
+.textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--color-gold-light);
+  background: white;
+  font-family: var(--font-inter), sans-serif;
+  resize: vertical;
+}
+
+.textarea:focus, .input:focus {
+  outline: none;
+  border-color: var(--color-gold);
+}
+
+.input {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--color-gold-light);
+  background: white;
+  font-family: var(--font-inter), sans-serif;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.separator::before, .separator::after {
+  content: '';
+  height: 1px;
+  background: var(--color-gold-light);
+  flex: 1;
+}
+
+.star {
+  color: var(--color-gold);
+  margin: 0 1rem;
+}
+
+.submitBtn {
+  width: 100%;
+  background: var(--color-button-bg);
+  color: var(--color-button-text);
+  padding: 1.2rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.submitBtn:hover {
+  background: var(--color-gold-dark);
+}
+
+.hiddenInput {
+  display: none;
+}
+
+.premiumHint {
+  font-size: 0.9rem;
+  color: var(--color-gold-dark);
+  font-weight: normal;
+}
+
+.fileList {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.fileItem {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: white;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-gold-light);
+  font-size: 0.9rem;
+}
+
+.filePreview {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 1px solid var(--color-border);
+}
+
+.fileName {
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--color-text-dark);
+}
+
+.removeFileBtn {
+  background: transparent;
+  color: #ff4d4f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0.2rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.removeFileBtn:hover {
+  background: rgba(255, 77, 79, 0.1);
+}
+
+.paymentOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.paymentOption {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.paymentOption:hover {
+  border-color: var(--color-gold);
+}
+
+.paymentActive {
+  border-color: var(--color-gold);
+  background: rgba(203, 170, 92, 0.05);
+  box-shadow: 0 4px 15px rgba(203, 170, 92, 0.1);
+}
+
+.hiddenRadio {
+  display: none;
+}
+
+.radioCustom {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid var(--color-gold-light);
+  position: relative;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.paymentActive .radioCustom {
+  border-color: var(--color-gold);
+}
+
+.paymentActive .radioCustom::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-gold);
+}
+
+.paymentText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.paymentText strong {
+  color: var(--color-text-dark);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.paymentText span {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  .modal {
+    padding: 1.5rem;
+  }
+  .title {
+    font-size: 1.4rem;
+  }
+}

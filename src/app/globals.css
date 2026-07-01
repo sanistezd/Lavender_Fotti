@@ -1,0 +1,58 @@
+:root {
+  --color-bg-ivory: rgb(255, 255, 240);
+  --color-text-dark: #1A1A1A;
+  --color-gold-light: #F4E2B1;
+  --color-gold: #CBAA5C;
+  --color-gold-dark: #A58237;
+  --color-card-bg: rgba(255, 255, 240, 0.9);
+  --color-button-bg: #111111;
+  --color-button-text: #FFFFFF;
+  --color-border: rgba(203, 170, 92, 0.3);
+  
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 10px 30px rgba(203, 170, 92, 0.1);
+  --shadow-hover: 0 15px 40px rgba(203, 170, 92, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--color-bg-ivory);
+  color: var(--color-text-dark);
+  font-family: var(--font-inter), sans-serif;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-playfair), serif;
+  font-weight: 500;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-inter), sans-serif;
+  cursor: pointer;
+  border: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+

@@ -1,0 +1,145 @@
+.servicesSection {
+  padding: 6rem 2rem;
+  background-color: var(--color-bg-ivory);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.headerWrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-size: 3.5rem;
+  color: var(--color-text-dark);
+  font-family: var(--font-playfair), serif;
+}
+
+.titleMascot {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  animation: float 4s ease-in-out infinite;
+}
+
+.cardsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  max-width: 1200px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  flex: 1;
+  min-width: 300px;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-subtle);
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-card);
+  border-color: var(--color-gold);
+}
+
+.cardMascot {
+  position: absolute;
+  top: -40px;
+  right: -20px;
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  z-index: 10;
+  transform: rotate(15deg);
+  transition: transform 0.3s ease;
+}
+
+.card:hover .cardMascot {
+  transform: rotate(0deg) scale(1.1);
+}
+
+.cardTitle {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-playfair), serif;
+  color: var(--color-text-dark);
+  min-height: 4.5rem;
+}
+
+.cardDesc {
+  color: #555;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  flex-grow: 1;
+  font-size: 1.05rem;
+}
+
+.ctaBtn {
+  background: transparent;
+  color: var(--color-text-dark);
+  width: 100%;
+  padding: 1.2rem;
+  border-radius: 15px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: 2px solid var(--color-gold);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.ctaBtn:hover {
+  background: var(--color-gold);
+  color: white;
+}
+
+.premiumCard {
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-card);
+  background: linear-gradient(135deg, rgba(255,255,240,1) 0%, rgba(244,226,177,0.3) 100%);
+}
+
+.premiumCard::before {
+  content: 'Хит';
+  position: absolute;
+  top: 20px;
+  right: -30px;
+  background: var(--color-gold-dark);
+  color: white;
+  padding: 5px 35px;
+  transform: rotate(45deg);
+  font-weight: bold;
+  font-size: 0.8rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.premiumCard .ctaBtn {
+  background: var(--color-button-bg);
+  color: var(--color-button-text);
+  border: none;
+}
+
+.premiumCard .ctaBtn:hover {
+  background: var(--color-gold-dark);
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+}
