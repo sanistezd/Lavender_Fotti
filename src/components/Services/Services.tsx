@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { Sparkles } from 'lucide-react';
 import styles from './Services.module.css';
 import OrderModal from '../OrderModal/OrderModal';
 
