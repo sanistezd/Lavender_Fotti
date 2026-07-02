@@ -40,12 +40,7 @@ export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalP
         preview: URL.createObjectURL(file)
       }));
       
-      if (isPremium) {
-        setFiles(prev => [...prev, ...newFiles]);
-      } else {
-        files.forEach(f => URL.revokeObjectURL(f.preview));
-        setFiles(newFiles);
-      }
+      setFiles(prev => [...prev, ...newFiles]);
     }
   };
 
@@ -75,7 +70,7 @@ export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalP
             <div className={styles.stepHeader}>
               <span className={styles.stepNumber}>1</span>
               <span className={styles.stepTitle}>
-                Загрузите фотографи{isPremium ? 'и' : 'ю'} {isPremium && <span className={styles.premiumHint}>(можно несколько для коллажа)</span>}
+                Загрузите фотографии <span className={styles.premiumHint}>(можно несколько)</span>
               </span>
             </div>
             
@@ -83,13 +78,13 @@ export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalP
               <div className={styles.uploadIcon}>
                 <ImagePlus size={24} />
               </div>
-              <span>{isPremium ? 'Загрузить фотографии' : 'Загрузить фотографию'}</span>
+              <span>Загрузить фотографии</span>
               <input 
                 type="file" 
                 ref={fileInputRef} 
                 onChange={handleFileChange} 
                 className={styles.hiddenInput} 
-                multiple={isPremium}
+                multiple
                 accept="image/*"
               />
             </div>

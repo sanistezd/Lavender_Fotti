@@ -31,7 +31,7 @@ export default function Services() {
     {
       id: 1,
       title: "Редактирование фотографий",
-      price: "500₽",
+      price: "600₽",
       description: "Базовое редактирование фото, цветокоррекция, ретушь. Отличный выбор для улучшения качества снимков.",
       isPremium: false
     }
