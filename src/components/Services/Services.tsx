@@ -16,19 +16,22 @@ export default function Services() {
     {
       id: 3,
       title: "Premium оживление",
+      price: "3000₽",
       description: "Полноценное длинное видео из фото с возможностью добавить коллаж. Профессиональная проработка деталей.",
       isPremium: true
     },
     {
-      id: 1,
-      title: "Редактирование фотографий",
-      description: "Базовое редактирование фото, цветокоррекция, ретушь. Отличный выбор для улучшения качества снимков.",
+      id: 2,
+      title: "Быстрое оживление",
+      price: "1250₽",
+      description: "Короткая анимация (5-15 секунд). Вдохнем жизнь в вашу фотографию для соцсетей.",
       isPremium: false
     },
     {
-      id: 2,
-      title: "Быстрое оживление",
-      description: "Короткая анимация (5-15 секунд). Вдохнем жизнь в вашу фотографию для соцсетей.",
+      id: 1,
+      title: "Редактирование фотографий",
+      price: "500₽",
+      description: "Базовое редактирование фото, цветокоррекция, ретушь. Отличный выбор для улучшения качества снимков.",
       isPremium: false
     }
   ];
@@ -42,7 +45,13 @@ export default function Services() {
       <div className={styles.cardsContainer}>
         {services.map((service) => (
           <div key={service.id} className={`${styles.card} ${service.isPremium ? styles.premiumCard : ''}`}>
-            <h3 className={styles.cardTitle}>{service.title}</h3>
+            {service.isPremium && <div className={styles.premiumBadge}><Sparkles size={16} /> Лучший выбор</div>}
+            
+            <div className={styles.cardHeader}>
+              <h3 className={styles.cardTitle}>{service.title}</h3>
+              <div className={styles.cardPrice}>{service.price}</div>
+            </div>
+
             <p className={styles.cardDesc}>{service.description}</p>
             <button className={styles.ctaBtn} onClick={() => handleOpenModal(service.title)}>
               Начать

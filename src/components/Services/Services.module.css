@@ -74,12 +74,24 @@
   transform: rotate(0deg) scale(1.1);
 }
 
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  min-height: 5.5rem; /* Ensure cards stay same height even if title wraps */
+}
+
 .cardTitle {
   font-size: 1.8rem;
-  margin-bottom: 1rem;
   font-family: var(--font-playfair), serif;
   color: var(--color-text-dark);
-  min-height: 4.5rem;
+}
+
+.cardPrice {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-gold-dark);
 }
 
 .cardDesc {
