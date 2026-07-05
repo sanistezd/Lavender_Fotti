@@ -17,15 +17,15 @@ export default function Hero() {
         <nav className={styles.nav}>
           <div className={styles.navItem}>
             <button className={styles.navBtn} onClick={() => scrollTo('services')}>Услуги</button>
-            <img src="/Web_UI_element2.png" alt="line" className={styles.navLine} />
+            <div className={styles.navLine}></div>
           </div>
           <div className={styles.navItem}>
             <button className={styles.navBtn} onClick={() => scrollTo('howItWorks')}>Как это работает</button>
-            <img src="/Web_UI_element2.png" alt="line" className={styles.navLine} />
+            <div className={styles.navLine}></div>
           </div>
           <div className={styles.navItem}>
             <button className={styles.navBtn} onClick={() => scrollTo('portfolio')}>Примеры</button>
-            <img src="/Web_UI_element2.png" alt="line" className={styles.navLine} />
+            <div className={styles.navLine}></div>
           </div>
         </nav>
       </header>

@@ -53,13 +53,12 @@
 
 .navLine {
   position: absolute;
-  top: -5px; /* Positioned ABOVE the word */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 130%; /* Slightly wider than the text */
-  height: 10px; /* Fixed height so the glow doesn't shrink when width is small */
-  object-fit: fill; /* Allow horizontal stretching of the line */
-  pointer-events: none;
+  bottom: -4px; /* Under the word */
+  left: 0;
+  width: 100%; /* Exactly the width of the word */
+  height: 2px;
+  background-color: #CDAD6A; /* Slightly darker than the header color #E3D2A9 */
+  border-radius: 2px;
 }
 
 .navBtn {
