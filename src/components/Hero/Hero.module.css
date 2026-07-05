@@ -119,19 +119,25 @@
 }
 
 .title {
-  font-size: 4.5rem; /* Reduced font size so text fits and doesn't push sparkles off-screen */
+  font-size: 6.5rem; /* Reverted */
   line-height: 1.1;
   color: var(--color-text-dark);
   font-family: var(--font-playfair), serif;
+  margin-bottom: 2rem;
+}
+
+.titleContainer {
+  position: relative;
+  display: inline-block;
 }
 
 .titleHighlight {
-  color: var(--color-gold);
+  color: #C8AE7D;
   font-style: italic;
+  font-weight: 400;
   position: relative;
   display: inline-block;
   padding-bottom: 5px;
-  margin-left: 45px; /* Shift text to the right to make room for left sparkles! */
 }
 
 .titleHighlight::after {
@@ -287,8 +293,8 @@
 
 .sparkles1 {
   position: absolute;
-  bottom: -20px; /* Under the letters */
-  left: -40px; /* To the left */
+  bottom: -5px; /* Slightly below the bottom edge of the text block */
+  left: -30px; /* To the left of the block */
   width: 70px;
   height: auto;
   pointer-events: none;

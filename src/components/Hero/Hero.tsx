@@ -35,10 +35,10 @@ export default function Hero() {
           <span className={styles.badge}>Профессиональная обработка</span>
           
           <div className={styles.titleContainer}>
+            <img src="/Web_UI_element1.png" alt="sparkles" className={styles.sparkles1} />
             <h1 className={styles.title}>
               Оживляем<br className={styles.desktopBr} />
               <span className={styles.titleHighlight}>
-                <img src="/Web_UI_element1.png" alt="sparkles" className={styles.sparkles1} />
                 воспоминания
                 <img src="/Web_UI_element4.2.png" alt="sparkles" className={styles.sparkles2} />
               </span>
