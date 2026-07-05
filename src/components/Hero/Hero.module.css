@@ -16,7 +16,7 @@
   left: 0;
   width: 100%;
   background-color: #E4D3AC; /* Exact color from the user's header image */
-  padding: 0.8rem 5rem; /* Thinner header */
+  padding: 1.2rem 5rem; /* Header height to match mockup */
   z-index: 1000;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
@@ -24,8 +24,7 @@
 .logo {
   display: flex;
   align-items: center;
-  position: relative;
-  padding-left: 100px; /* Space for absolute mascot */
+  gap: 1.5rem;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
   font-size: 2.8rem; 
   font-weight: 300; 
@@ -34,14 +33,9 @@
 }
 
 .logoMascot {
-  position: absolute;
-  left: -20px;
-  top: 50%;
-  transform: translateY(-45%);
-  width: 130px; /* Huge mascot overlapping header */
-  height: 130px;
+  width: 95px; /* Larger, but not overlapping */
+  height: 95px;
   object-fit: contain;
-  z-index: 10;
 }
 
 .nav {
@@ -58,13 +52,12 @@
 
 .navLine {
   position: absolute;
-  bottom: -10px; /* Perfectly under the word */
+  bottom: -12px; /* Positioned under the word */
   left: 50%;
   transform: translateX(-50%);
-  width: 140%; /* Compensate for the fading edges of the image */
-  height: auto; 
-  max-height: 14px; 
-  object-fit: contain;
+  width: 130%; /* Slightly wider than the text */
+  height: 10px; /* Fixed height so the glow doesn't shrink when width is small */
+  object-fit: fill; /* Allow horizontal stretching of the line */
   pointer-events: none;
 }
 
