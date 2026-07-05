@@ -15,11 +15,50 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #E3D2A9; /* Exact color of the new rectangular frame */
-  border-radius: 0; 
-  padding: 0.4rem 5rem; /* Reduced height so mascot almost touches edges */
-  z-index: 1000;
+  background-color: #E3D2A9; 
+  padding: 0.4rem 5rem;
+  z-index: 2000; /* Increased to stay above full screen menu */
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.headerScrolled {
+  padding: 0.2rem 5rem;
+  background-color: rgba(227, 210, 169, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 2001;
+}
+
+.bar {
+  width: 100%;
+  height: 3px;
+  background-color: #6C5D4B;
+  border-radius: 2px;
+  transition: all 0.3s linear;
+  transform-origin: 1px;
+}
+
+.hamburgerOpen .bar:first-child {
+  transform: rotate(45deg);
+}
+
+.hamburgerOpen .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburgerOpen .bar:nth-child(3) {
+  transform: rotate(-45deg);
 }
 
 .logo {
@@ -143,13 +182,13 @@
 .titleFirstLine::after {
   content: '';
   position: absolute;
-  bottom: 12px;
-  left: -10px;
-  right: -10px;
-  height: 20px;
+  bottom: 8px; /* Lowered so it grazes the bottom of the letters */
+  left: -5px;
+  right: -5px;
+  height: 14px; /* Thinner highlight */
   background-color: #E8DCBC;
   z-index: -1;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 .titleHighlight {
@@ -335,11 +374,40 @@
 
 @media (max-width: 768px) {
   .header {
+    flex-direction: row; /* Keep logo and hamburger side by side */
+    padding: 0.8rem 1.5rem;
+    position: fixed;
+    z-index: 2000;
+  }
+  
+  .hamburger {
+    display: flex; /* Show hamburger on mobile */
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #FEFCF6;
     flex-direction: column;
-    gap: 0.5rem;
-    padding: 1rem 1.5rem;
-    background: linear-gradient(90deg, #E6D2A5 0%, #E0CCA0 100%);
-    position: relative; /* Remove fixed header on mobile for better space */
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    transform: translateY(-100%);
+    transition: transform 0.4s ease-in-out;
+    z-index: 1500;
+    opacity: 0;
+  }
+
+  .navOpen {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .navBtn {
+    font-size: 2rem; /* Larger text for full screen menu */
   }
   
   .content {
@@ -347,7 +415,7 @@
   }
   
   .hero {
-    padding: 2rem 1.5rem;
+    padding: 6rem 1.5rem 2rem 1.5rem; /* Extra top padding for fixed header */
   }
   
   .titleContainer {
@@ -362,10 +430,10 @@
   }
   
   .titleFirstLine::after {
-    height: 10px;
-    bottom: 6px;
-    left: -5px;
-    right: -5px;
+    height: 8px;
+    bottom: 4px;
+    left: -2px;
+    right: -2px;
   }
 
   .sparkles1 {
