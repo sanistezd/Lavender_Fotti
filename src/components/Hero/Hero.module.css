@@ -286,20 +286,22 @@
 
 .sparkles1 {
   position: absolute;
-  bottom: -25px; /* Under the letters */
-  left: -25px; /* Tucked under the first letter */
-  width: 50px;
+  bottom: -5px; /* Right under the curve of 'в' */
+  left: -35px; /* To the left of the letter */
+  width: 60px;
   height: auto;
   pointer-events: none;
+  z-index: 10;
 }
 
 .sparkles2 {
   position: absolute;
-  top: 5px;
-  right: -40px;
-  width: 35px;
+  top: 15px; /* Near the top of 'я' */
+  right: -45px;
+  width: 45px;
   height: auto;
   pointer-events: none;
+  z-index: 10;
 }
 
 @media (max-width: 768px) {
