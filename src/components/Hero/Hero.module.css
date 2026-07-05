@@ -17,7 +17,7 @@
   width: 100%;
   background-color: #E3D2A9; /* Exact color of the new rectangular frame */
   border-radius: 0; 
-  padding: 1.2rem 5rem; 
+  padding: 0.4rem 5rem; /* Reduced height so mascot almost touches edges */
   z-index: 1000;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
