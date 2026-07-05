@@ -200,17 +200,6 @@
   padding-bottom: 5px;
 }
 
-.titleHighlight::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 6px;
-  background-color: var(--color-gold-light);
-  border-radius: 3px;
-  opacity: 0.5;
-}
 
 .descBox {
   background: #F4EFE0;
@@ -354,9 +343,9 @@
 
 .sparkles1 {
   position: absolute;
-  bottom: -5px; /* Slightly below the bottom edge of the text block */
-  left: -30px; /* To the left of the block */
-  width: 70px;
+  bottom: 0px; 
+  left: -40px; 
+  width: 60px;
   height: auto;
   pointer-events: none;
   z-index: 999;
@@ -447,9 +436,9 @@
   }
 
   .sparkles1 {
-    width: 45px;
-    bottom: -5px;
-    left: -15px;
+    width: 40px;
+    bottom: 5px;
+    left: -20px;
   }
   
   .sparkles2 {
