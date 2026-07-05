@@ -286,17 +286,17 @@
 
 .sparkles1 {
   position: absolute;
-  bottom: 0px;
-  left: -45px;
-  width: 45px;
+  bottom: -25px; /* Under the letters */
+  left: -25px; /* Tucked under the first letter */
+  width: 50px;
   height: auto;
   pointer-events: none;
 }
 
 .sparkles2 {
   position: absolute;
-  top: -10px;
-  right: -55px;
+  top: 5px;
+  right: -40px;
   width: 35px;
   height: auto;
   pointer-events: none;
