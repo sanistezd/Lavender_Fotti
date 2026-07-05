@@ -37,7 +37,7 @@ export default function Hero() {
           <div className={styles.titleContainer}>
             <img src="/Web_UI_element1.png" alt="sparkles" className={styles.sparkles1} />
             <h1 className={styles.title}>
-              Оживляем<br className={styles.desktopBr} />
+              <span className={styles.titleFirstLine}>Оживляем</span><br className={styles.desktopBr} />
               <span className={styles.titleHighlight}>
                 воспоминания
                 <img src="/Web_UI_element4.2.png" alt="sparkles" className={styles.sparkles2} />
