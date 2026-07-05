@@ -53,7 +53,7 @@
 
 .navLine {
   position: absolute;
-  bottom: -12px; /* Positioned under the word */
+  top: -5px; /* Positioned ABOVE the word */
   left: 50%;
   transform: translateX(-50%);
   width: 130%; /* Slightly wider than the text */
