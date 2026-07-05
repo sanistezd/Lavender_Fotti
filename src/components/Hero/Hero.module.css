@@ -12,14 +12,14 @@
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  top: 1.5rem;
-  left: 2%;
-  width: 96%;
-  background-color: #F3EFE0; /* Exact color of the provided frame */
-  border-radius: 32px; /* Make it a rounded frame */
-  padding: 1.2rem 4rem; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #E3D2A9; /* Exact color of the new rectangular frame */
+  border-radius: 0; 
+  padding: 1.2rem 5rem; 
   z-index: 1000;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 .logo {
