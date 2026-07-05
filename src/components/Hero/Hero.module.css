@@ -15,7 +15,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--color-bg-ivory); /* Light background like in image */
+  background-color: #E4D3AC; /* Exact color from the user's header image */
   padding: 1.5rem 5rem; 
   z-index: 1000;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
