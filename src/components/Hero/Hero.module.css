@@ -15,9 +15,8 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--color-bg-ivory);
+  background: linear-gradient(90deg, #E6D2A5 0%, #E0CCA0 100%); /* Gold/beige header */
   padding: 1rem 4rem;
-  border-bottom: 1px solid var(--color-border);
   z-index: 1000;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
@@ -61,9 +60,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 4rem;
+  gap: 2rem;
   z-index: 10;
-  margin-top: 6rem; /* Account for fixed header */
+  margin-top: 8rem; /* Account for fixed header */
 }
 
 .textContent {
@@ -73,9 +72,11 @@
 
 .titleContainer {
   display: flex;
-  align-items: flex-end;
-  gap: 2rem;
-  margin-bottom: 1.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  position: relative;
 }
 
 /* Mobile mascot is hidden on desktop by default */
@@ -106,12 +107,35 @@
 .titleHighlight {
   color: var(--color-gold);
   font-style: italic;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.titleHighlight::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background-color: var(--color-gold-light);
+  border-radius: 3px;
+  opacity: 0.5;
+}
+
+.descBox {
+  background: #F6F3EB; /* Soft beige background like in mockup */
+  padding: 1.5rem 2rem;
+  border-radius: 20px;
+  max-width: 650px;
+  margin-bottom: 2rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.02);
 }
 
 .subtitle {
-  font-size: 1.6rem; /* Increased from 1.4rem */
-  color: #555;
-  margin-bottom: 3.5rem; /* Increased */
+  font-size: 1.4rem; /* Reverted to look elegant */
+  color: #444;
   line-height: 1.6;
 }
 
@@ -238,11 +262,30 @@
   }
 }
 
+.sparkles1 {
+  position: absolute;
+  bottom: -20px;
+  left: -40px;
+  width: 60px;
+  height: auto;
+  pointer-events: none;
+}
+
+.sparkles2 {
+  position: absolute;
+  top: -10px;
+  right: -50px;
+  width: 50px;
+  height: auto;
+  pointer-events: none;
+}
+
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
     gap: 0.5rem;
     padding: 1rem 1.5rem;
+    background: linear-gradient(90deg, #E6D2A5 0%, #E0CCA0 100%);
     position: relative; /* Remove fixed header on mobile for better space */
   }
   

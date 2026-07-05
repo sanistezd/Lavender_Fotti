@@ -27,8 +27,12 @@ export default function Hero() {
           
           <div className={styles.titleContainer}>
             <h1 className={styles.title}>
-              Оживляем <br className={styles.desktopBr}/>
-              <span className={styles.titleHighlight}>воспоминания</span>
+              Оживляем<br className={styles.desktopBr} />
+              <span className={styles.titleHighlight}>
+                <img src="/Web_UI_element1.png" alt="sparkles" className={styles.sparkles1} />
+                воспоминания
+                <img src="/Web_UI_element4.2.png" alt="sparkles" className={styles.sparkles2} />
+              </span>
             </h1>
             <div className={styles.mascotWrapperMobile}>
               <div className={styles.glowSmall}></div>
@@ -40,17 +44,17 @@ export default function Hero() {
               />
             </div>
           </div>
-
-          <p className={styles.subtitle}>
-            Создаем уникальные видео-истории и доводим ваши снимки до идеала. Индивидуальная ручная проработка каждого кадра от профессионалов.
-          </p>
-          <div className={styles.ctaGroup}>
-            <button className={styles.ctaPrimary} onClick={() => scrollTo('services')}>
-              Выбрать услугу
-            </button>
-            <button className={styles.ctaSecondary} onClick={() => scrollTo('portfolio')}>
-              Смотреть работы
-            </button>
+          
+          <div className={styles.descBox}>
+            <p className={styles.subtitle}>
+              Создаем уникальные видео-истории и доводим ваши снимки до идеала. Индивидуальная ручная проработка каждого кадра от профессионалов.
+            </p>
+            <div className={styles.ctaGroup}>
+              <button className={styles.ctaPrimary} onClick={() => scrollTo('services')}>
+                Выбрать услугу
+              </button>
+              <button className={styles.ctaSecondary} onClick={() => scrollTo('portfolio')}>Смотреть работы</button>
+            </div>
           </div>
         </div>
 
