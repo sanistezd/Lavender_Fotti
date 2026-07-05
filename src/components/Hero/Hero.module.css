@@ -341,16 +341,6 @@
   }
 }
 
-.sparkles1 {
-  position: absolute;
-  bottom: 0px; 
-  left: -40px; 
-  width: 60px;
-  height: auto;
-  pointer-events: none;
-  z-index: 999;
-}
-
 .sparkles2 {
   position: absolute;
   top: 5px; 
@@ -435,12 +425,6 @@
     right: -2px;
   }
 
-  .sparkles1 {
-    width: 40px;
-    bottom: 5px;
-    left: -20px;
-  }
-  
   .sparkles2 {
     width: 35px;
     top: 5px;
