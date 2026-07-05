@@ -353,15 +353,31 @@
   .titleContainer {
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
-  }
-  
-  .desktopBr {
-    display: none; /* Let it wrap naturally on mobile without the hard break separating mascot too far */
+    gap: 0.5rem;
   }
   
   .title {
-    font-size: 3.2rem;
+    font-size: 3.5rem;
+    text-align: center;
+  }
+  
+  .titleFirstLine::after {
+    height: 10px;
+    bottom: 6px;
+    left: -5px;
+    right: -5px;
+  }
+
+  .sparkles1 {
+    width: 45px;
+    bottom: -5px;
+    left: -15px;
+  }
+  
+  .sparkles2 {
+    width: 35px;
+    top: 5px;
+    right: -25px;
   }
   
   .ctaGroup {
@@ -372,5 +388,10 @@
   .ctaPrimary, .ctaSecondary {
     width: 100%;
     justify-content: center;
+  }
+
+  .descBox {
+    padding: 1.5rem;
+    margin-top: 1rem;
   }
 }
