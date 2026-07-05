@@ -15,7 +15,7 @@ export default function Hero() {
           Lavender Fotti
         </div>
         <nav className={styles.nav}>
-          <button className={styles.navBtn} onClick={() => scrollTo('services')}>Услуги</button>
+          <button className={`${styles.navBtn} ${styles.navBtnActive}`} onClick={() => scrollTo('services')}>Услуги</button>
           <button className={styles.navBtn} onClick={() => scrollTo('howitworks')}>Как это работает</button>
           <button className={styles.navBtn} onClick={() => scrollTo('portfolio')}>Примеры</button>
         </nav>
