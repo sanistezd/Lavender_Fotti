@@ -15,7 +15,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  background: linear-gradient(90deg, #EAD7A1 0%, #E3CD94 100%); /* Slightly richer gold */
+  background: linear-gradient(90deg, #DFCA9A 0%, #D4B981 100%); /* Darker gold/beige header */
   padding: 1.8rem 4rem; /* Taller header */
   z-index: 1000;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
@@ -144,7 +144,7 @@
 
 .descBox {
   background: #F4EFE0; /* Flat beige matching image 4 */
-  padding: 2.5rem 2.5rem; /* More padding */
+  padding: 2rem 2.5rem; /* Slightly less vertical padding */
   border-radius: 24px;
   max-width: 650px;
   margin-bottom: 2rem;
@@ -152,9 +152,10 @@
 }
 
 .subtitle {
-  font-size: 1.4rem; /* Reverted to look elegant */
+  font-size: 1.45rem; 
   color: #444;
   line-height: 1.6;
+  margin-bottom: 0;
 }
 
 .ctaGroup {

@@ -52,12 +52,12 @@ export default function Hero() {
             <p className={styles.subtitle}>
               Создаем уникальные видео-истории и доводим ваши снимки до идеала. Индивидуальная ручная проработка каждого кадра от профессионалов.
             </p>
-            <div className={styles.ctaGroup}>
-              <button className={styles.ctaPrimary} onClick={() => scrollTo('services')}>
-                Выбрать услугу
-              </button>
-              <button className={styles.ctaSecondary} onClick={() => scrollTo('portfolio')}>Смотреть работы</button>
-            </div>
+          </div>
+          <div className={styles.ctaGroup}>
+            <button className={styles.ctaPrimary} onClick={() => scrollTo('services')}>
+              Выбрать услугу
+            </button>
+            <button className={styles.ctaSecondary} onClick={() => scrollTo('portfolio')}>Смотреть работы</button>
           </div>
         </div>
 
