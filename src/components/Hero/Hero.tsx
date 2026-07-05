@@ -40,7 +40,7 @@ export default function Hero() {
             <div className={styles.navLine}></div>
           </div>
           <div className={styles.navItem}>
-            <button className={styles.navBtn} onClick={() => scrollTo('howItWorks')}>Как это работает</button>
+            <button className={styles.navBtn} onClick={() => scrollTo('howitworks')}>Как это работает</button>
             <div className={styles.navLine}></div>
           </div>
           <div className={styles.navItem}>
