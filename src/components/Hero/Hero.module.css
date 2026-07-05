@@ -16,7 +16,7 @@
   left: 0;
   width: 100%;
   background-color: #E4D3AC; /* Exact color from the user's header image */
-  padding: 1.5rem 5rem; 
+  padding: 0.8rem 5rem; /* Thinner header */
   z-index: 1000;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
@@ -24,18 +24,24 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  position: relative;
+  padding-left: 100px; /* Space for absolute mascot */
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
-  font-size: 2.8rem; /* Perfectly matched size */
+  font-size: 2.8rem; 
   font-weight: 300; 
   color: #6C5D4B; /* Exact color match */
   letter-spacing: 0.5px;
 }
 
 .logoMascot {
-  width: 85px; 
-  height: 85px;
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-45%);
+  width: 130px; /* Huge mascot overlapping header */
+  height: 130px;
   object-fit: contain;
+  z-index: 10;
 }
 
 .nav {
