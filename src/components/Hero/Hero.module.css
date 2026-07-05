@@ -11,10 +11,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-bg-ivory);
+  padding: 1rem 4rem;
   border-bottom: 1px solid var(--color-border);
-  margin-bottom: 1rem;
-  z-index: 10;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 .logo {
@@ -58,11 +63,12 @@
   justify-content: space-between;
   gap: 4rem;
   z-index: 10;
+  margin-top: 6rem; /* Account for fixed header */
 }
 
 .textContent {
   flex: 1;
-  max-width: 600px;
+  max-width: 700px; /* Increased from 600px */
 }
 
 .titleContainer {
@@ -91,7 +97,7 @@
 }
 
 .title {
-  font-size: 5.5rem;
+  font-size: 6.5rem; /* Increased from 5.5rem */
   line-height: 1.1;
   color: var(--color-text-dark);
   font-family: var(--font-playfair), serif;
@@ -103,9 +109,9 @@
 }
 
 .subtitle {
-  font-size: 1.4rem;
+  font-size: 1.6rem; /* Increased from 1.4rem */
   color: #555;
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem; /* Increased */
   line-height: 1.6;
 }
 
@@ -118,8 +124,8 @@
 .ctaPrimary {
   background: var(--color-button-bg);
   color: var(--color-button-text);
-  padding: 1.2rem 3rem;
-  font-size: 1.1rem;
+  padding: 1.4rem 3.5rem; /* Increased padding */
+  font-size: 1.25rem; /* Increased font-size */
   border-radius: 50px;
   font-weight: 600;
   transition: all 0.3s ease;
@@ -138,8 +144,8 @@
 .ctaSecondary {
   background: transparent;
   color: var(--color-text-dark);
-  padding: 1.2rem 2rem;
-  font-size: 1.1rem;
+  padding: 1.4rem 2.5rem; /* Increased padding */
+  font-size: 1.25rem; /* Increased font-size */
   font-weight: 600;
   border-radius: 50px;
   border: 2px solid var(--color-border);
@@ -171,9 +177,9 @@
 
 .glow {
   position: absolute;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(244,226,177,0.8) 0%, rgba(255,255,240,0) 70%);
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(200, 100, 255, 0.5) 0%, rgba(200, 100, 255, 0) 70%);
   border-radius: 50%;
   z-index: -1;
   animation: pulse 4s infinite alternate;
@@ -219,9 +225,9 @@
 
   .glowSmall {
     position: absolute;
-    width: 130px;
-    height: 130px;
-    background: radial-gradient(circle, rgba(244,226,177,0.8) 0%, rgba(255,255,240,0) 70%);
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(200, 100, 255, 0.5) 0%, rgba(200, 100, 255, 0) 70%);
     border-radius: 50%;
     z-index: 1;
     animation: pulse 4s infinite alternate;
@@ -236,7 +242,12 @@
   .header {
     flex-direction: column;
     gap: 0.5rem;
-    margin-bottom: 1rem;
+    padding: 1rem 1.5rem;
+    position: relative; /* Remove fixed header on mobile for better space */
+  }
+  
+  .content {
+    margin-top: 1rem;
   }
   
   .hero {

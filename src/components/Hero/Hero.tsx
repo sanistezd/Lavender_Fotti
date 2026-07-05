@@ -11,7 +11,7 @@ export default function Hero() {
     <section className={styles.hero}>
       <header className={styles.header}>
         <div className={styles.logo}>
-          <img src="/mascot.png" alt="Lavender Fotti Logo" className={styles.logoMascot} onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+          <img src="/gold-mascot.png" alt="Lavender Fotti Logo" className={styles.logoMascot} onError={(e) => { e.currentTarget.style.display = 'none'; }} />
           Lavender Fotti
         </div>
         <nav className={styles.nav}>
