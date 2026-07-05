@@ -12,13 +12,14 @@
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #E4D3AC; /* Exact color from the user's header image */
-  padding: 1.2rem 5rem; /* Header height to match mockup */
+  top: 1.5rem;
+  left: 2%;
+  width: 96%;
+  background-color: #F3EFE0; /* Exact color of the provided frame */
+  border-radius: 32px; /* Make it a rounded frame */
+  padding: 1.2rem 4rem; 
   z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
 }
 
 .logo {
@@ -28,13 +29,13 @@
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
   font-size: 2.8rem; 
   font-weight: 300; 
-  color: #6C5D4B; /* Exact color match */
+  color: #6C5D4B; 
   letter-spacing: 0.5px;
 }
 
 .logoMascot {
-  width: 95px; /* Larger, but not overlapping */
-  height: 95px;
+  width: 120px; /* Made bigger, taller and wider */
+  height: 120px;
   object-fit: contain;
 }
 
