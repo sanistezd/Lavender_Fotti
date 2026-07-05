@@ -380,6 +380,16 @@
     z-index: 2000;
   }
   
+  .logo {
+    font-size: 1.8rem; /* Smaller font on mobile */
+    gap: 0.8rem;
+  }
+  
+  .logoMascot {
+    width: 60px; /* Smaller mascot on mobile */
+    height: 60px;
+  }
+  
   .hamburger {
     display: flex; /* Show hamburger on mobile */
   }
@@ -411,7 +421,7 @@
   }
   
   .content {
-    margin-top: 1rem;
+    margin-top: 4rem; /* Ensure enough space below the header */
   }
   
   .hero {
