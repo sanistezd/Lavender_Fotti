@@ -15,8 +15,8 @@
   top: 0;
   left: 0;
   width: 100%;
-  background: linear-gradient(90deg, #EAD3A8 0%, #E2C895 100%); /* Perfect match from mockup */
-  padding: 1.5rem 5rem; /* Exact height and side padding */
+  background-color: var(--color-bg-ivory); /* Light background like in image */
+  padding: 1.5rem 5rem; 
   z-index: 1000;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
@@ -40,21 +40,20 @@
 
 .nav {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0;
+  gap: 3rem;
 }
 
-.navLinks {
+.navItem {
   display: flex;
-  gap: 3rem; /* Perfect distance between links */
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
 }
 
 .navLine {
-  width: 115%; /* Spans across all links perfectly */
-  height: auto; /* Preserve glow proportions! */
-  max-height: 25px; /* Prevent it from being too tall */
-  margin-top: 2px;
+  width: 100%; /* Span just the text */
+  height: auto; 
+  max-height: 25px; 
   object-fit: contain;
 }
 

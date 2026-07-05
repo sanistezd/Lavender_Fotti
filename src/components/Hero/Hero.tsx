@@ -15,12 +15,18 @@ export default function Hero() {
           Lavender Fotti
         </div>
         <nav className={styles.nav}>
-          <div className={styles.navLinks}>
+          <div className={styles.navItem}>
             <button className={styles.navBtn} onClick={() => scrollTo('services')}>Услуги</button>
-            <button className={styles.navBtn} onClick={() => scrollTo('howItWorks')}>Как это работает</button>
-            <button className={styles.navBtn} onClick={() => scrollTo('portfolio')}>Примеры</button>
+            <img src="/Web_UI_element2.png" alt="line" className={styles.navLine} />
           </div>
-          <img src="/Web_UI_element2.png" alt="nav line" className={styles.navLine} />
+          <div className={styles.navItem}>
+            <button className={styles.navBtn} onClick={() => scrollTo('howItWorks')}>Как это работает</button>
+            <img src="/Web_UI_element2.png" alt="line" className={styles.navLine} />
+          </div>
+          <div className={styles.navItem}>
+            <button className={styles.navBtn} onClick={() => scrollTo('portfolio')}>Примеры</button>
+            <img src="/Web_UI_element2.png" alt="line" className={styles.navLine} />
+          </div>
         </nav>
       </header>
 
