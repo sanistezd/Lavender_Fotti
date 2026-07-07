@@ -29,7 +29,7 @@ export default function Footer() {
       </div>
       
       <div className={styles.copyright}>
-        © {new Date().getFullYear()} Lavender Fotti. Все права защищены.
+        © {new Date().getFullYear()} Fotty Motion. Все права защищены.
       </div>
     </footer>
   );

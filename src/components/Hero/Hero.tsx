@@ -24,8 +24,8 @@ export default function Hero() {
     <section className={styles.hero}>
       <header className={`${styles.header} ${isScrolled ? styles.headerScrolled : ''}`}>
         <div className={styles.logo}>
-          <img src="/gold-mascot.png" alt="Lavender Fotti Logo" className={styles.logoMascot} onError={(e) => { e.currentTarget.style.display = 'none'; }} />
-          Lavender Fotti
+          <img src="/gold-mascot.png" alt="Fotty Motion Logo" className={styles.logoMascot} onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+          Fotty Motion
         </div>
         
         <button className={`${styles.hamburger} ${isMenuOpen ? styles.hamburgerOpen : ''}`} onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
@@ -66,7 +66,7 @@ export default function Hero() {
               <div className={styles.glowSmall}></div>
               <img 
                 src="/mascot.png" 
-                alt="Lavender Fotti Mascot" 
+                alt="Fotty Motion Mascot" 
                 className={styles.inlineMascot}
                 onError={(e) => { e.currentTarget.src = "https://placehold.co/180x180/CBAA5C/white?text=Mascot"; }}
               />
@@ -90,7 +90,7 @@ export default function Hero() {
           <div className={styles.glow}></div>
           <img 
             src="/mascot.png" 
-            alt="Lavender Fotti Mascot" 
+            alt="Fotty Motion Mascot" 
             className={styles.mainMascot}
             onError={(e) => { e.currentTarget.src = "https://placehold.co/500x500/CBAA5C/white?text=Mascot"; }}
           />
