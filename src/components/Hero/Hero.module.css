@@ -10,15 +10,15 @@
       0deg,
       transparent,
       transparent 39px,
-      rgba(180, 160, 120, 0.03) 39px,
-      rgba(180, 160, 120, 0.03) 40px
+      rgba(180, 160, 120, 0.1) 39px,
+      rgba(180, 160, 120, 0.1) 40px
     ),
     repeating-linear-gradient(
       90deg,
       transparent,
       transparent 39px,
-      rgba(180, 160, 120, 0.03) 39px,
-      rgba(180, 160, 120, 0.03) 40px
+      rgba(180, 160, 120, 0.1) 39px,
+      rgba(180, 160, 120, 0.1) 40px
     );
 }
 
@@ -116,12 +116,15 @@
   border-radius: 2px;
 }
 
-.headerVisa {
+.heroVisa {
+  position: absolute;
+  top: 90px; /* Below the fixed header */
+  right: 5rem; /* Align with header padding */
   height: 24px;
   width: auto;
   opacity: 0.2;
-  margin-left: 2rem;
   object-fit: contain;
+  z-index: 5; /* Above grid, below content */
 }
 
 .navBtn {
