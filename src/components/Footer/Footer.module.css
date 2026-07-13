@@ -113,12 +113,25 @@
   color: white;
   opacity: 0.7;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .socialLink:hover {
   opacity: 1;
   color: var(--color-gold);
   transform: translateY(-3px);
+}
+
+.vkIcon {
+  font-size: 20px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
 }
 
 .copyright {

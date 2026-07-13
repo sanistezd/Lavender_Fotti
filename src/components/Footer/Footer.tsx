@@ -1,4 +1,5 @@
 import styles from './Footer.module.css';
+import { Mail, Send } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -22,9 +23,15 @@ export default function Footer() {
         </div>
         
         <div className={styles.contacts}>
-          <a href="mailto:Fottymotion@gmail.com" className={styles.socialLink}>Email: Fottymotion@gmail.com</a>
-          <a href="https://t.me/prostomarl" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>Telegram: @prostomarl</a>
-          <a href="https://vk.com/prostomarl" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>VK: vk.com/prostomarl</a>
+          <a href="mailto:Fottymotion@gmail.com" className={styles.socialLink} aria-label="Email">
+            <Mail size={28} />
+          </a>
+          <a href="https://t.me/prostomarl" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="Telegram">
+            <Send size={28} />
+          </a>
+          <a href="https://vk.com/prostomarl" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="VK">
+            <span className={styles.vkIcon}>VK</span>
+          </a>
         </div>
       </div>
       
