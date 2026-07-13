@@ -338,8 +338,9 @@
   }
   
   .mascotWrapperMobile {
-    display: block;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 1.5rem 0;
     position: relative;
     z-index: 5;
@@ -347,8 +348,8 @@
 
   .heroVisa {
     right: 1rem;
-    top: 120px; /* Aligned better with mobile layout */
-    height: 25px;
+    top: 60px; /* Above the badge */
+    height: 20px;
   }
   
   .inlineMascot {
@@ -364,6 +365,10 @@
     position: absolute;
     width: 150px;
     height: 150px;
+    top: 50%;
+    left: 50%;
+    margin-top: -75px;
+    margin-left: -75px;
     background: radial-gradient(circle, rgba(200, 100, 255, 0.5) 0%, rgba(200, 100, 255, 0) 70%);
     border-radius: 50%;
     z-index: 1;
@@ -390,6 +395,9 @@
     flex-direction: row;
     padding: 0.6rem 1rem;
     position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     z-index: 2000;
   }
   
