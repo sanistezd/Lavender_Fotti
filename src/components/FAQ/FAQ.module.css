@@ -10,6 +10,8 @@
   font-size: 3rem;
   margin-bottom: 4rem;
   color: var(--color-text-dark);
+  text-align: center;
+  width: 100%;
 }
 
 .container {
