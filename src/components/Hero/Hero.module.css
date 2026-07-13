@@ -118,13 +118,13 @@
 
 .heroVisa {
   position: absolute;
-  top: 100px;
+  top: 150px; /* Moved down to align with content */
   right: 5rem;
-  height: 40px; /* Increased size */
+  height: 40px;
   width: auto;
-  opacity: 0.4; /* Increased opacity to ensure visibility */
+  opacity: 0.2; /* Reverted to 20% */
   object-fit: contain;
-  z-index: 100; /* Ensure it's on top of everything */
+  z-index: 100;
 }
 
 .navBtn {
