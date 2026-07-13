@@ -58,7 +58,9 @@ export default function Services() {
   return (
     <section id="services" className={styles.servicesSection}>
       <div className={styles.headerWrap}>
+        <img src="/wing-left.png" alt="Left wing" className={styles.wingLeft} />
         <h2 className={styles.title}>Наши услуги</h2>
+        <img src="/wing-right.png" alt="Right wing" className={styles.wingRight} />
       </div>
       
       <div className={styles.cardsContainer}>

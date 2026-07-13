@@ -20,6 +20,14 @@
   font-family: var(--font-playfair), serif;
 }
 
+.wingLeft, .wingRight {
+  width: 70px;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  margin-top: -10px; /* Adjust vertical alignment if needed */
+}
+
 .titleMascot {
   width: 60px;
   height: 60px;
