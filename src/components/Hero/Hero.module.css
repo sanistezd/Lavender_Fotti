@@ -202,7 +202,22 @@
 
 
 .descBox {
-  background: #F4EFE0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 39px,
+      rgba(180, 160, 120, 0.15) 39px,
+      rgba(180, 160, 120, 0.15) 40px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 39px,
+      rgba(180, 160, 120, 0.15) 39px,
+      rgba(180, 160, 120, 0.15) 40px
+    ),
+    #F4EFE0;
   padding: 2rem 2.5rem;
   border-radius: 24px;
   max-width: 750px;
@@ -212,7 +227,7 @@
 }
 
 .subtitle {
-  font-size: 1.45rem; 
+  font-size: 1.15rem;
   color: #444;
   line-height: 1.6;
   margin-bottom: 0;
