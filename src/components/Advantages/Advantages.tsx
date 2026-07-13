@@ -3,15 +3,14 @@ import { Sparkles, Clock, ShieldCheck, HeartHandshake } from 'lucide-react';
 
 export default function Advantages() {
   const advantages = [
-    { icon: <Sparkles size={32} />, title: "Безупречное качество", desc: "Детальная ручная проработка каждого снимка и профессиональный софт студийного уровня." },
-    { icon: <Clock size={32} />, title: "Точные сроки", desc: "Выполняем заказы строго в оговоренное время без задержек и отговорок." },
-    { icon: <ShieldCheck size={32} />, title: "Гарантия результата", desc: "Работаем над вашим проектом до полного утверждения. Для нас важен идеальный итог." },
-    { icon: <HeartHandshake size={32} />, title: "Индивидуальный подход", desc: "Никаких шаблонов. Мы внимательно изучаем ваши пожелания и создаем эксклюзивный материал." }
+    { icon: <Sparkles size={32} />, title: "Без промтов и настроек", desc: "Просто отправьте фото и опишите идею обычными словами. Фотти сам подберет обработку, движение и формат результата." },
+    { icon: <Clock size={32} />, title: "Понятные сроки", desc: "Срок выполнения зависит от выбранной услуги. Мы не затягиваем заказы и отправляем результат в оговоренное время." },
+    { icon: <ShieldCheck size={32} />, title: "Не просто генерация", desc: "Мы не отдаем случайный результат из нейросети. Снимки проходят подготовку, отбор удачных вариантов и финальную сборку." }
   ];
 
   return (
     <section className={styles.section}>
-      <h2 className={styles.title}>Почему выбирают нас</h2>
+      <h2 className={styles.title}>Почему с Фотти удобно?</h2>
       <div className={styles.grid}>
         {advantages.map((adv, i) => (
           <div key={i} className={styles.card}>

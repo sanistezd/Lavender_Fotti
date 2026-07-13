@@ -52,7 +52,7 @@ export default function Hero() {
 
       <div className={styles.content}>
         <div className={styles.textContent}>
-          <span className={styles.badge}>Профессиональная обработка</span>
+          <span className={styles.badge}>Профессиональная обработка без промтов и сложных настроек</span>
           
           <div className={styles.titleContainer}>
             <h1 className={styles.title}>
@@ -75,14 +75,14 @@ export default function Hero() {
           
           <div className={styles.descBox}>
             <p className={styles.subtitle}>
-              Создаем уникальные видео-истории и доводим ваши снимки до идеала. Индивидуальная ручная проработка каждого кадра от профессионалов.
+              Фотти превратит ваши фотографии в живой ролик для подарка, памяти или красивой публикации. Просто отправьте снимки и коротко опишите, что хотите получить - обработку, подбор движения и финальную сборку мы берём на себя.
             </p>
           </div>
           <div className={styles.ctaGroup}>
             <button className={styles.ctaPrimary} onClick={() => scrollTo('services')}>
               Выбрать услугу
             </button>
-            <button className={styles.ctaSecondary} onClick={() => scrollTo('portfolio')}>Смотреть работы</button>
+            <button className={styles.ctaSecondary} onClick={() => scrollTo('portfolio')}>Примеры работ</button>
           </div>
         </div>
 

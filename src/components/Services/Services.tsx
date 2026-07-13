@@ -18,21 +18,39 @@ export default function Services() {
       id: 3,
       title: "Premium оживление",
       price: "3000₽",
-      description: "Полноценное длинное видео из фото с возможностью добавить коллаж. Профессиональная проработка деталей.",
+      description: [
+        "Превратим вашу фотографии в полноценное видео до 60 секунд",
+        "Можно добавить до 10 изображений",
+        "Обработаем снимки, добавим движение, атмосферу и соберём готовый ролик для подарка, памяти или красивой публикации",
+        "Добавление фоновой музыки по вашему вкусу",
+        "Приоритетная обработка заказов"
+      ],
+      buttonText: "Заказать ролик (Цена 3000 р)",
       isPremium: true
     },
     {
       id: 2,
       title: "Быстрое оживление",
-      price: "1250₽",
-      description: "Короткая анимация (5-15 секунд). Вдохнем жизнь в вашу фотографию для соцсетей.",
+      price: "1490₽",
+      description: [
+        "Идеально подойдет для необычных сторис, аватарки и публикации в соцсетях",
+        "Видеоролик длительностью до 15 секунд",
+        "Возможность использовать до 3 изображений",
+        "Добавление фоновой музыки по вашему вкусу"
+      ],
+      buttonText: "Оживить фото (Цена 1490р)",
       isPremium: false
     },
     {
       id: 1,
-      title: "Редактирование фотографий",
-      price: "600₽",
-      description: "Базовое редактирование фото, цветокоррекция, ретушь. Отличный выбор для улучшения качества снимков.",
+      title: "Редактирование фотографии",
+      price: "1190₽",
+      description: [
+        "Аккуратное улучшение фото",
+        "Возможность кардинально изменить стиль фотографии",
+        "Добавление новых объектов или удаление лишних"
+      ],
+      buttonText: "Заказать обработку (Цена 1190р)",
       isPremium: false
     }
   ];
@@ -50,12 +68,15 @@ export default function Services() {
             
             <div className={styles.cardHeader}>
               <h3 className={styles.cardTitle}>{service.title}</h3>
-              <div className={styles.cardPrice}>{service.price}</div>
             </div>
 
-            <p className={styles.cardDesc}>{service.description}</p>
+            <ul className={styles.cardDescList}>
+              {service.description.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
             <button className={styles.ctaBtn} onClick={() => handleOpenModal(service.title)}>
-              Начать
+              {service.buttonText}
             </button>
           </div>
         ))}

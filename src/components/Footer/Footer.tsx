@@ -4,31 +4,34 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.ctaSection}>
-        <h2 className={styles.title}>Готовы преобразить ваши фото?</h2>
-        <p className={styles.subtitle}>Оставьте заявку, и мы свяжемся с вами в ближайшее время</p>
+        <h2 className={styles.title}>Нужен индивидуальный заказ?</h2>
+        <p className={styles.subtitle}>Если готовые услуги не подходят или у вас есть особая идея, оставьте контакт - мы свяжемся с вами, обсудим задачу и предложим подходящий формат.</p>
         <form id="order-form" className={styles.form}>
           <input type="text" placeholder="Ваше имя" className={styles.input} />
           <input type="text" placeholder="Контакт для связи (Telegram/WhatsApp)" className={styles.input} />
           <button type="submit" className={styles.submitBtn}>
             Отправить заявку
           </button>
+          <p className={styles.formNote}>Стоимость и срок индивидуального заказа обсуждаются отдельно. Оплата — после согласования деталей.</p>
         </form>
       </div>
 
       <div className={styles.bottomSection}>
         <div className={styles.brand}>
-          <h3 className={styles.logo}>HighQuality</h3>
-          <p className={styles.desc}>Прокатись на волне креатива</p>
+          <h3 className={styles.logo}>Fotty Motion</h3>
         </div>
         
         <div className={styles.contacts}>
-          <a href="#" className={styles.socialLink}>Instagram</a>
-          <a href="#" className={styles.socialLink}>Telegram</a>
-          <a href="#" className={styles.socialLink}>Email</a>
+          <a href="mailto:Fottymotion@gmail.com" className={styles.socialLink}>Email: Fottymotion@gmail.com</a>
+          <a href="https://t.me/prostomarl" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>Telegram: @prostomarl</a>
+          <a href="https://vk.com/prostomarl" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>VK: vk.com/prostomarl</a>
         </div>
       </div>
       
       <div className={styles.copyright}>
+        <div className={styles.legalLinks}>
+          <a href="/legal" className={styles.legalBtn}>Правовая информация</a>
+        </div>
         © {new Date().getFullYear()} Fotty Motion. Все права защищены.
       </div>
     </footer>
