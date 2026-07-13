@@ -33,7 +33,7 @@
   background-color: #E3D2A9; 
   padding: 0.4rem 5rem;
   z-index: 2000; /* Increased to stay above full screen menu */
-  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 30px rgba(108, 93, 75, 0.25);
   transition: all 0.3s ease;
 }
 
@@ -41,6 +41,7 @@
   padding: 0.2rem 5rem;
   background-color: rgba(227, 210, 169, 0.95);
   backdrop-filter: blur(10px);
+  box-shadow: 0 15px 35px rgba(108, 93, 75, 0.3);
 }
 
 .hamburger {
@@ -223,7 +224,7 @@
   max-width: 750px;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  box-shadow: 0 15px 40px rgba(108, 93, 75, 0.35);
 }
 
 .subtitle {
