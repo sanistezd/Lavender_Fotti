@@ -118,6 +118,16 @@
   opacity: 0.8;
 }
 
+.visaText {
+  color: #1A1F71; /* Official Visa dark blue */
+  font-size: 2.5rem;
+  font-weight: 900;
+  font-style: italic;
+  font-family: Arial, sans-serif;
+  letter-spacing: -2px;
+  line-height: 1;
+}
+
 .contacts {
   display: flex;
   gap: 1.5rem;
