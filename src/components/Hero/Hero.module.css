@@ -33,7 +33,7 @@
   background-color: #E3D2A9; 
   padding: 0.4rem 5rem;
   z-index: 2000; /* Increased to stay above full screen menu */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
   transition: all 0.3s ease;
 }
 
@@ -223,7 +223,7 @@
   max-width: 750px;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
 .subtitle {
