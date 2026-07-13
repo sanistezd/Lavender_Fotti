@@ -1,6 +1,9 @@
+'use client';
+import { useState } from 'react';
 import styles from './HowItWorks.module.css';
 
 export default function HowItWorks() {
+  const [hoveredStep, setHoveredStep] = useState<number | null>(null);
   const steps = [
     {
       title: "Выберите услугу",
@@ -26,12 +29,20 @@ export default function HowItWorks() {
       <h2 className={styles.title}>Как это работает?</h2>
       <div className={styles.stepsContainer}>
         {steps.map((step, index) => (
-          <div key={index} className={styles.step}>
+          <div 
+            key={index} 
+            className={styles.step}
+            onMouseEnter={() => setHoveredStep(index)}
+            onMouseLeave={() => setHoveredStep(null)}
+          >
             <div className={styles.stepNumber}>{index + 1}</div>
             <div className={styles.stepContent}>
               <h3 className={styles.stepTitle}>{step.title}</h3>
               <p className={styles.stepDesc}>{step.desc}</p>
             </div>
+            {hoveredStep === index && (
+              <img src="/hand.png" alt="Pointer" className={styles.handPointer} />
+            )}
           </div>
         ))}
       </div>

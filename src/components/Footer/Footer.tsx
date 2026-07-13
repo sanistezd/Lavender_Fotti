@@ -1,6 +1,14 @@
+'use client';
+
 import styles from './Footer.module.css';
 
 export default function Footer() {
+  const handleEmailClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigator.clipboard.writeText('Fottymotion@gmail.com');
+    alert('Email Fottymotion@gmail.com скопирован в буфер обмена!');
+  };
+
   return (
     <footer className={styles.footer}>
       <div className={styles.ctaSection}>
@@ -26,9 +34,9 @@ export default function Footer() {
             <span className={styles.visaText}>VISA</span>
           </div>
           <div className={styles.contacts}>
-            <a href="https://instagram.com/prostomarl" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>Instagram</a>
+            <a href="https://vk.com/prostomarl" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>VK</a>
             <a href="https://t.me/prostomarl" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>Telegram</a>
-            <a href="mailto:Fottymotion@gmail.com" className={styles.socialLink}>Email</a>
+            <a href="mailto:Fottymotion@gmail.com" onClick={handleEmailClick} className={styles.socialLink}>Email</a>
           </div>
         </div>
       </div>

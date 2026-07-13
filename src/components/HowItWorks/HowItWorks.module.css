@@ -85,6 +85,27 @@
   line-height: 1.6;
 }
 
+.handPointer {
+  position: absolute;
+  right: -100px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 80px;
+  height: auto;
+  pointer-events: none;
+  animation: pointLeft 0.8s infinite alternate ease-in-out;
+  z-index: 10;
+}
+
+@keyframes pointLeft {
+  from {
+    transform: translateY(-50%) translateX(0);
+  }
+  to {
+    transform: translateY(-50%) translateX(-15px);
+  }
+}
+
 @media (max-width: 768px) {
   .stepsContainer::before {
     left: 30px;
@@ -98,5 +119,9 @@
   
   .step {
     gap: 1rem;
+  }
+
+  .handPointer {
+    display: none;
   }
 }
