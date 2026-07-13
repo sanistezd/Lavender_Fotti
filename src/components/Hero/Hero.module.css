@@ -39,8 +39,7 @@
 
 .headerScrolled {
   padding: 0.2rem 5rem;
-  background-color: rgba(227, 210, 169, 0.95);
-  backdrop-filter: blur(10px);
+  background-color: #E3D2A9; /* Make it completely solid */
   box-shadow: 0 15px 35px rgba(108, 93, 75, 0.3);
 }
 
