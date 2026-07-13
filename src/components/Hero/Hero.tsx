@@ -47,6 +47,7 @@ export default function Hero() {
             <button className={styles.navBtn} onClick={() => scrollTo('portfolio')}>Примеры</button>
             <div className={styles.navLine}></div>
           </div>
+          <img src="/visa-header.png" alt="Visa" className={styles.headerVisa} />
         </nav>
       </header>
 

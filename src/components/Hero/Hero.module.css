@@ -10,15 +10,15 @@
       0deg,
       transparent,
       transparent 39px,
-      rgba(180, 160, 120, 0.1) 39px,
-      rgba(180, 160, 120, 0.1) 40px
+      rgba(180, 160, 120, 0.03) 39px,
+      rgba(180, 160, 120, 0.03) 40px
     ),
     repeating-linear-gradient(
       90deg,
       transparent,
       transparent 39px,
-      rgba(180, 160, 120, 0.1) 39px,
-      rgba(180, 160, 120, 0.1) 40px
+      rgba(180, 160, 120, 0.03) 39px,
+      rgba(180, 160, 120, 0.03) 40px
     );
 }
 
@@ -114,6 +114,14 @@
   height: 2px;
   background-color: #CDAD6A; /* Slightly darker than the header color #E3D2A9 */
   border-radius: 2px;
+}
+
+.headerVisa {
+  height: 24px;
+  width: auto;
+  opacity: 0.2;
+  margin-left: 2rem;
+  object-fit: contain;
 }
 
 .navBtn {
