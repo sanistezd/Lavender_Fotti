@@ -183,4 +183,7 @@
   .paymentMethods {
     margin-right: 0;
   }
+  .visaText {
+    font-size: 2.2rem;
+  }
 }

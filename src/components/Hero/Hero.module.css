@@ -346,8 +346,8 @@
   }
 
   .heroVisa {
-    right: 1.5rem;
-    top: 80px;
+    right: 1rem;
+    top: 120px; /* Aligned better with mobile layout */
     height: 25px;
   }
   
