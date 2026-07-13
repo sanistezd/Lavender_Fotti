@@ -132,7 +132,8 @@
 
 @media (max-width: 768px) {
   .title {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    white-space: nowrap;
   }
   
   .sparkleLeft {
