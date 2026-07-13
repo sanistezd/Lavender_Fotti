@@ -41,7 +41,7 @@ export default function HowItWorks() {
               <p className={styles.stepDesc}>{step.desc}</p>
             </div>
             {hoveredStep === index && (
-              <img src="/hand.jpg" alt="Pointer" className={styles.handPointer} />
+              <img src="/hand.png" alt="Pointer" className={styles.handPointer} />
             )}
           </div>
         ))}
