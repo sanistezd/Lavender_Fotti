@@ -26,7 +26,11 @@ export default function HowItWorks() {
 
   return (
     <section id="howitworks" className={styles.section}>
-      <h2 className={styles.title}>Как это работает?</h2>
+      <div className={styles.headerWrap}>
+        <img src="/sparkles-left.png" alt="Sparkles" className={styles.sparkleLeft} />
+        <h2 className={styles.title}>Как это работает?</h2>
+        <img src="/sparkles-right.png" alt="Sparkles" className={styles.sparkleRight} />
+      </div>
       <div className={styles.stepsContainer}>
         {steps.map((step, index) => (
           <div 
