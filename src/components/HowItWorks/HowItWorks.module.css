@@ -18,11 +18,20 @@
   margin: 0;
 }
 
-.sparkleLeft, .sparkleRight {
-  width: 50px;
+.sparkleLeft {
+  width: 65px;
   height: auto;
   object-fit: contain;
   mix-blend-mode: multiply;
+  margin-top: 5px;
+}
+
+.sparkleRight {
+  width: 45px;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  margin-bottom: 10px;
 }
 
 .stepsContainer {
@@ -126,8 +135,14 @@
     font-size: 2rem;
   }
   
-  .sparkleLeft, .sparkleRight {
+  .sparkleLeft {
+    width: 45px;
+    margin-top: 2px;
+  }
+  
+  .sparkleRight {
     width: 30px;
+    margin-bottom: 5px;
   }
 
   .stepsContainer::before {
