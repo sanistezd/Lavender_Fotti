@@ -161,7 +161,7 @@ export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalP
                 <div className={styles.radioCustom}></div>
                 <div className={styles.paymentText}>
                   <strong>Оплата после результата</strong>
-                  <span>Вы платите после утверждения (возможно 50% предоплаты)</span>
+                  <span>Вы платите после утверждения</span>
                 </div>
               </label>
             </div>
