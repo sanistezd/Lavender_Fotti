@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 const TELEGRAM_BOT_TOKEN = '8886885060:AAECUYufrMRMsa5gNLbrKEfSm1mixKMnJIc';
 const TELEGRAM_CHAT_ID = '-1003861088020';
 
-export const maxDuration = 60; // Allow more time for Vercel to process uploads
+export const maxDuration = 60;
 
 export async function POST(request: Request) {
   try {
@@ -14,7 +14,6 @@ export async function POST(request: Request) {
     const contactMethod = formData.get('contactMethod') as string;
     const contactInfo = formData.get('contactInfo') as string;
 
-    // Collect files
     const files: File[] = [];
     for (const [key, value] of formData.entries()) {
       if (key.startsWith('file') && value instanceof File) {
@@ -50,19 +49,19 @@ export async function POST(request: Request) {
       formattedContact = `<a href="mailto:${contactInfo.trim()}">${escapeHtml(contactInfo)}</a>`;
     }
 
-    const message = `
-🌟 <b>Новый заказ!</b>
-    
+    const message = `🌟 <b>Новый заказ!</b>
+
 <b>Услуга:</b> ${escapeHtml(service)}
 <b>Способ связи:</b> ${escapeHtml(contactMethod)}
 <b>Контакт:</b> ${formattedContact}
 
 <b>Описание:</b>
 ${escapeHtml(description) || 'Не указано'}
-    `.trim();
 
-    // 1. Always send the text message first
-    const sendMsgRes = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+📎 <b>Файлов прикреплено:</b> ${files.length}`;
+
+    // Send text message first, then files as a media group in one message
+    const textRes = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -72,28 +71,34 @@ ${escapeHtml(description) || 'Не указано'}
       }),
     });
 
-    if (!sendMsgRes.ok) {
-      const errorData = await sendMsgRes.text();
-      console.error('Telegram API error:', errorData);
-      return NextResponse.json({ error: 'Failed to send message to Telegram' }, { status: 500 });
+    const textData = await textRes.json();
+
+    if (!textRes.ok) {
+      console.error('Telegram API error:', textData);
+      return NextResponse.json({ error: 'Failed to send' }, { status: 500 });
     }
 
-    // 2. Send all files as documents in reply to the text message
+    // Send all files as one grouped media group (documents)
     if (files.length > 0) {
-      const msgData = await sendMsgRes.json();
-      const messageId = msgData.result.message_id;
+      const messageId = textData.result.message_id;
+      const tgFormData = new FormData();
+      tgFormData.append('chat_id', TELEGRAM_CHAT_ID);
+      tgFormData.append('reply_to_message_id', messageId.toString());
 
-      for (const file of files) {
-        const tgFormData = new FormData();
-        tgFormData.append('chat_id', TELEGRAM_CHAT_ID);
-        tgFormData.append('reply_to_message_id', messageId.toString());
-        tgFormData.append('document', file);
+      const mediaArray = files.map((_f, i) => ({
+        type: 'document',
+        media: `attach://file${i}`,
+      }));
+      
+      tgFormData.append('media', JSON.stringify(mediaArray));
+      files.forEach((f, i) => {
+        tgFormData.append(`file${i}`, f);
+      });
 
-        await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument`, {
-          method: 'POST',
-          body: tgFormData,
-        });
-      }
+      await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMediaGroup`, {
+        method: 'POST',
+        body: tgFormData,
+      });
     }
 
     return NextResponse.json({ success: true });
