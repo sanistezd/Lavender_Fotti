@@ -28,7 +28,7 @@ export default function Footer() {
       const formData = new FormData();
       formData.append('service', 'Индивидуальный заказ');
       formData.append('description', 'Заявка из футера (Нужен индивидуальный заказ)');
-      formData.append('contactMethod', 'telegram/whatsapp');
+      formData.append('contactMethod', 'telegram/vk/email');
       formData.append('contactInfo', `Имя: ${name} | Контакт: ${contact}`);
 
       const res = await fetch('/api/order', {
@@ -72,7 +72,7 @@ export default function Footer() {
               />
               <input 
                 type="text" 
-                placeholder="Контакт для связи (Telegram/WhatsApp)" 
+                placeholder="Контакт для связи (Telegram/VK/Email)" 
                 className={styles.input}
                 value={contact}
                 onChange={(e) => setContact(e.target.value)}
