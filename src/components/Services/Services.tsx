@@ -25,7 +25,7 @@ export default function Services() {
         "Добавление фоновой музыки по вашему вкусу",
         "Приоритетная обработка заказов"
       ],
-      buttonText: "Заказать ролик (Цена 3000 р)",
+      buttonText: "Заказать ролик",
       isPremium: true
     },
     {
@@ -38,7 +38,7 @@ export default function Services() {
         "Возможность использовать до 3 изображений",
         "Добавление фоновой музыки по вашему вкусу"
       ],
-      buttonText: "Оживить фото (Цена 1490р)",
+      buttonText: "Оживить фото",
       isPremium: false
     },
     {
@@ -50,7 +50,7 @@ export default function Services() {
         "Возможность кардинально изменить стиль фотографии",
         "Добавление новых объектов или удаление лишних"
       ],
-      buttonText: "Заказать обработку (Цена 1190р)",
+      buttonText: "Заказать обработку",
       isPremium: false
     }
   ];
@@ -77,6 +77,7 @@ export default function Services() {
                 <li key={index}>{item}</li>
               ))}
             </ul>
+            <div className={styles.priceLabel}>{service.price}</div>
             <button className={styles.ctaBtn} onClick={() => handleOpenModal(service.title)}>
               {service.buttonText}
             </button>
