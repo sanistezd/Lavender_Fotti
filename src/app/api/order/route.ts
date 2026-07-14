@@ -32,50 +32,84 @@ export async function POST(request: Request) {
       });
     };
 
+    let formattedContact = escapeHtml(contactInfo);
+    if (contactMethod === 'telegram') {
+      const cleanUsername = contactInfo.replace('@', '').trim();
+      if (!cleanUsername.startsWith('+') && !cleanUsername.startsWith('http')) {
+        formattedContact = `<a href="https://t.me/${cleanUsername}">@${cleanUsername}</a>`;
+      }
+    } else if (contactMethod === 'vk') {
+      let cleanVk = contactInfo.trim();
+      if (!cleanVk.startsWith('http')) {
+        cleanVk = `https://vk.com/${cleanVk.replace('@', '')}`;
+      }
+      formattedContact = `<a href="${cleanVk}">${escapeHtml(contactInfo)}</a>`;
+    } else if (contactMethod === 'email') {
+      formattedContact = `<a href="mailto:${contactInfo.trim()}">${escapeHtml(contactInfo)}</a>`;
+    }
+
     const message = `
 🌟 <b>Новый заказ!</b>
     
 <b>Услуга:</b> ${escapeHtml(service)}
 <b>Способ связи:</b> ${escapeHtml(contactMethod)}
-<b>Контакт:</b> ${escapeHtml(contactInfo)}
+<b>Контакт:</b> ${formattedContact}
 
 <b>Описание:</b>
 ${escapeHtml(description) || 'Не указано'}
-    `;
+    `.trim();
 
-    // 1. Send the text message
-    const sendMsgRes = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        chat_id: TELEGRAM_CHAT_ID,
-        text: message,
-        parse_mode: 'HTML',
-      }),
-    });
+    let sendRes;
 
-    if (!sendMsgRes.ok) {
-      const errorData = await sendMsgRes.text();
-      console.error('Telegram API error:', errorData);
-      return NextResponse.json({ error: 'Failed to send message to Telegram' }, { status: 500 });
-    }
-
-    const msgData = await sendMsgRes.json();
-    const messageId = msgData.result.message_id;
-
-    // 2. Send the photos/documents
-    for (const file of files) {
+    if (files.length === 0) {
+      // No files, just send text
+      sendRes = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: TELEGRAM_CHAT_ID,
+          text: message,
+          parse_mode: 'HTML',
+        }),
+      });
+    } else if (files.length === 1) {
+      // 1 file, send as document with caption
       const tgFormData = new FormData();
       tgFormData.append('chat_id', TELEGRAM_CHAT_ID);
-      tgFormData.append('reply_to_message_id', messageId.toString());
-      tgFormData.append('document', file);
+      tgFormData.append('caption', message);
+      tgFormData.append('parse_mode', 'HTML');
+      tgFormData.append('document', files[0]);
 
-      await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument`, {
+      sendRes = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument`, {
         method: 'POST',
         body: tgFormData,
       });
+    } else {
+      // Multiple files, send as media group
+      const tgFormData = new FormData();
+      tgFormData.append('chat_id', TELEGRAM_CHAT_ID);
+
+      const mediaArray = files.map((f, i) => ({
+        type: 'document', // use document to avoid aggressive compression and grouping issues
+        media: `attach://file${i}`,
+        ...(i === 0 ? { caption: message, parse_mode: 'HTML' } : {})
+      }));
+      
+      tgFormData.append('media', JSON.stringify(mediaArray));
+      files.forEach((f, i) => {
+        tgFormData.append(`file${i}`, f);
+      });
+
+      sendRes = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMediaGroup`, {
+        method: 'POST',
+        body: tgFormData,
+      });
+    }
+
+    if (!sendRes.ok) {
+      const errorData = await sendRes.text();
+      console.error('Telegram API error:', errorData);
+      return NextResponse.json({ error: 'Failed to send message to Telegram' }, { status: 500 });
     }
 
     return NextResponse.json({ success: true });
