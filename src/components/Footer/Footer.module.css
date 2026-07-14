@@ -222,11 +222,67 @@
   .paymentMethods {
     margin-right: 0;
   }
-  .visaText {
+.visaText {
     font-size: 2.2rem;
   }
   .title {
     font-size: 2.2rem;
     padding: 0 0.5rem;
   }
+}
+
+.contactSelectors {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.contactMethod {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  cursor: pointer;
+}
+
+.contactMethod span {
+  font-size: 1rem;
+  color: white;
+  opacity: 0.8;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.contactIconCircle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  background-color: rgba(255,255,255,0.05);
+}
+
+.contactMethodActive .contactIconCircle {
+  border-color: var(--color-gold);
+  border-width: 2px;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+}
+
+.contactMethodActive span {
+  opacity: 1;
+  color: var(--color-gold);
+}
+
+.iconGray {
+  color: rgba(255,255,255,0.6);
+  transition: all 0.3s ease;
+}
+
+.iconGold {
+  color: var(--color-gold);
+  transition: all 0.3s ease;
 }

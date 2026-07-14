@@ -2,11 +2,18 @@
 
 import { useState } from 'react';
 import styles from './Footer.module.css';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, Send, Mail } from 'lucide-react';
+
+const VkIcon = ({ size = 24 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12.77 17.29h.31v-3.57c2.01.2 3.53 1.67 4.14 3.57h2.84c-.78-2.84-2.83-4.41-4.11-5.01 1.28-.74 3.08-2.54 3.51-4.98h-2.58c-.56 1.98-2.22 3.78-3.8 3.95V7.3H10.5v6.92c-1.6-.4-3.62-2.34-3.71-6.92H4.05c.13 6.24 3.25 9.99 8.72 9.99Z" />
+  </svg>
+);
 
 export default function Footer() {
   const [name, setName] = useState('');
   const [contact, setContact] = useState('');
+  const [contactMethod, setContactMethod] = useState<'telegram' | 'vk' | 'email'>('telegram');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -28,7 +35,7 @@ export default function Footer() {
       const formData = new FormData();
       formData.append('service', 'Индивидуальный заказ');
       formData.append('description', 'Заявка из футера (Нужен индивидуальный заказ)');
-      formData.append('contactMethod', 'telegram/vk/email');
+      formData.append('contactMethod', contactMethod);
       formData.append('contactInfo', `Имя: ${name} | Контакт: ${contact}`);
 
       const res = await fetch('/api/order', {
@@ -70,9 +77,45 @@ export default function Footer() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
+              <div className={styles.contactSelectors}>
+                <div 
+                  className={`${styles.contactMethod} ${contactMethod === 'telegram' ? styles.contactMethodActive : ''}`}
+                  onClick={() => setContactMethod('telegram')}
+                >
+                  <div className={styles.contactIconCircle}>
+                    <Send size={24} className={contactMethod === 'telegram' ? styles.iconGold : styles.iconGray} />
+                  </div>
+                  <span>Telegram</span>
+                </div>
+
+                <div 
+                  className={`${styles.contactMethod} ${contactMethod === 'vk' ? styles.contactMethodActive : ''}`}
+                  onClick={() => setContactMethod('vk')}
+                >
+                  <div className={styles.contactIconCircle}>
+                    <VkIcon size={28} />
+                  </div>
+                  <span>VK</span>
+                </div>
+
+                <div 
+                  className={`${styles.contactMethod} ${contactMethod === 'email' ? styles.contactMethodActive : ''}`}
+                  onClick={() => setContactMethod('email')}
+                >
+                  <div className={styles.contactIconCircle}>
+                    <Mail size={24} className={contactMethod === 'email' ? styles.iconGold : styles.iconGray} />
+                  </div>
+                  <span>Email</span>
+                </div>
+              </div>
+
               <input 
                 type="text" 
-                placeholder="Контакт для связи (Telegram/VK/Email)" 
+                placeholder={
+                  contactMethod === 'telegram' ? 'Введите ваш @username в Telegram' :
+                  contactMethod === 'vk' ? 'Введите ссылку на профиль VK' :
+                  'Введите Email'
+                } 
                 className={styles.input}
                 value={contact}
                 onChange={(e) => setContact(e.target.value)}
