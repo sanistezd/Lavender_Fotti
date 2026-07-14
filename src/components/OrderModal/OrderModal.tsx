@@ -179,7 +179,7 @@ export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalP
           <div className={styles.stepGroup}>
             <div className={styles.stepHeader}>
               <span className={styles.stepNumber}>4</span>
-              <span className={styles.stepTitle}>Выберите вариант оплаты</span>
+              <span className={styles.stepTitle}>Оплата заказа</span>
             </div>
             <div className={styles.paymentOptions}>
               <label className={`${styles.paymentOption} ${paymentType === 'full' ? styles.paymentActive : ''}`}>
@@ -194,23 +194,7 @@ export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalP
                 <div className={styles.radioCustom}></div>
                 <div className={styles.paymentText}>
                   <strong>Оплатить сразу 100%</strong>
-                  <span>Приоритетное выполнение заказа</span>
-                </div>
-              </label>
-
-              <label className={`${styles.paymentOption} ${paymentType === 'after' ? styles.paymentActive : ''}`}>
-                <input 
-                  type="radio" 
-                  name="payment" 
-                  value="after" 
-                  checked={paymentType === 'after'} 
-                  onChange={() => setPaymentType('after')} 
-                  className={styles.hiddenRadio}
-                />
-                <div className={styles.radioCustom}></div>
-                <div className={styles.paymentText}>
-                  <strong>Оплата после результата</strong>
-                  <span>Вы платите после утверждения</span>
+                  <span>После оплаты мы сразу приступим к выполнению вашего заказа</span>
                 </div>
               </label>
             </div>
@@ -221,7 +205,7 @@ export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalP
           </div>
 
           <button className={styles.submitBtn}>
-            {paymentType === 'full' ? 'Оплатить онлайн' : 'Отправить заявку'}
+            Оплатить заказ
             <ArrowRight size={20} />
           </button>
         </div>
