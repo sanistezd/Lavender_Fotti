@@ -19,6 +19,9 @@ export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalP
   const [files, setFiles] = useState<{file: File, name: string, preview: string}[]>([]);
   const [paymentType, setPaymentType] = useState('full'); // 'full' or 'after'
   const [contactMethod, setContactMethod] = useState<'telegram' | 'vk' | 'email'>('telegram');
+  const [description, setDescription] = useState('');
+  const [contactInfo, setContactInfo] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -55,6 +58,45 @@ export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalP
     const fileToRemove = files[indexToRemove];
     if (fileToRemove) URL.revokeObjectURL(fileToRemove.preview);
     setFiles(files.filter((_, index) => index !== indexToRemove));
+  };
+
+  const handleSubmit = async () => {
+    if (!contactInfo) {
+      alert('Пожалуйста, укажите контакт для связи.');
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      const formData = new FormData();
+      formData.append('service', serviceName || 'Не указана');
+      formData.append('description', description);
+      formData.append('contactMethod', contactMethod);
+      formData.append('contactInfo', contactInfo);
+      
+      files.forEach((f, i) => {
+        formData.append(`file${i}`, f.file);
+      });
+
+      const res = await fetch('/api/order', {
+        method: 'POST',
+        body: formData,
+      });
+      
+      if (res.ok) {
+        alert('Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.');
+        onClose();
+        // Reset form
+        setDescription('');
+        setContactInfo('');
+        setFiles([]);
+      } else {
+        alert('Произошла ошибка при отправке заявки. Пожалуйста, попробуйте еще раз.');
+      }
+    } catch (e) {
+      alert('Произошла ошибка при отправке заявки. Проверьте подключение к интернету.');
+    }
+    setIsLoading(false);
   };
 
   return (
@@ -119,6 +161,8 @@ export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalP
             <textarea 
               className={styles.textarea} 
               placeholder="Опишите какой результат хотели бы увидеть..."
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
             ></textarea>
           </div>
 
@@ -168,6 +212,8 @@ export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalP
                 contactMethod === 'vk' ? 'Введите ссылку на профиль VK' :
                 'Введите Email'
               } 
+              value={contactInfo}
+              onChange={(e) => setContactInfo(e.target.value)}
             />
             
             <div className={styles.contactNote}>
@@ -204,9 +250,9 @@ export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalP
             <Sparkles className={styles.star} size={20} />
           </div>
 
-          <button className={styles.submitBtn}>
-            Оплатить заказ
-            <ArrowRight size={20} />
+          <button className={styles.submitBtn} onClick={handleSubmit} disabled={isLoading}>
+            {isLoading ? 'Отправка...' : 'Оплатить заказ'}
+            {!isLoading && <ArrowRight size={20} />}
           </button>
         </div>
       </div>
