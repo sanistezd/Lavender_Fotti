@@ -144,7 +144,7 @@ export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalP
                 onClick={() => setContactMethod('vk')}
               >
                 <div className={styles.contactIconCircle}>
-                  <div className={contactMethod === 'vk' ? styles.iconGold : styles.iconGray}><VkIcon size={24} /></div>
+                  <div className={contactMethod === 'vk' ? styles.iconGold : styles.iconGray}><VkIcon size={32} /></div>
                 </div>
                 <span>VK</span>
               </div>
