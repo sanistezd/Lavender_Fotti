@@ -20,6 +20,7 @@
   color: white;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  font-family: var(--font-playfair), serif;
 }
 
 .subtitle {
@@ -79,6 +80,42 @@
   margin-top: 0.5rem;
   line-height: 1.4;
   text-align: center;
+}
+
+.successScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.successIcon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
+}
+
+.star {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
 }
 
 .bottomSection {

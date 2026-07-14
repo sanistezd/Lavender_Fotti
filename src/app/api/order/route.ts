@@ -56,7 +56,9 @@ export async function POST(request: Request) {
 <b>Контакт:</b> ${formattedContact}
 
 <b>Описание:</b>
-${escapeHtml(description) || 'Не указано'}`;
+${escapeHtml(description) || 'Не указано'}
+
+📎 <b>Файлов прикреплено:</b> ${files.length}`;
 
     // 1. Send text message first
     const textRes = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
