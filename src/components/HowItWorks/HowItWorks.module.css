@@ -57,7 +57,7 @@
 .step {
   display: flex;
   gap: 2rem;
-  align-items: flex-start;
+  align-items: center; /* Center the circle vertically with the text block */
   position: relative;
   z-index: 1;
 }
