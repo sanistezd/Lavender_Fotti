@@ -22,12 +22,16 @@ export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalP
   const [description, setDescription] = useState('');
   const [contactInfo, setContactInfo] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
       setFiles([]); // Reset files when modal opens
+      setIsSubmitted(false);
+      setDescription('');
+      setContactInfo('');
     } else {
       document.body.style.overflow = 'unset';
     }
@@ -84,16 +88,14 @@ export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalP
       });
       
       if (res.ok) {
-        alert('Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.');
-        onClose();
-        // Reset form
-        setDescription('');
-        setContactInfo('');
-        setFiles([]);
+        setIsSubmitted(true);
       } else {
+        const errData = await res.text();
+        console.error('Submit error:', errData);
         alert('Произошла ошибка при отправке заявки. Пожалуйста, попробуйте еще раз.');
       }
     } catch (e) {
+      console.error(e);
       alert('Произошла ошибка при отправке заявки. Проверьте подключение к интернету.');
     }
     setIsLoading(false);
@@ -106,15 +108,31 @@ export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalP
           <X size={20} />
         </button>
 
-        <header className={styles.header}>
-          <img src="/mascot.png" alt="Mascot" className={styles.mascot} />
-          <div className={styles.headerText}>
-            <h2 className={styles.title}>{serviceName}</h2>
-            <p className={styles.subtitle}>Оформление заказа</p>
+        {isSubmitted ? (
+          <div className={styles.successScreen}>
+            <div className={styles.successIcon}>
+              <Sparkles size={48} className={styles.star} />
+            </div>
+            <h2>Спасибо за ваш заказ!</h2>
+            <p>Мы получили вашу заявку и уже приступили к работе.</p>
+            <p className={styles.successSubtext}>
+              В ближайшее время мы свяжемся с вами по указанному контакту ({contactInfo}) для подтверждения деталей.
+            </p>
+            <button className={styles.submitBtn} onClick={onClose}>
+              Вернуться на сайт
+            </button>
           </div>
-        </header>
+        ) : (
+          <>
+            <header className={styles.header}>
+              <img src="/mascot.png" alt="Mascot" className={styles.mascot} />
+              <div className={styles.headerText}>
+                <h2 className={styles.title}>{serviceName}</h2>
+                <p className={styles.subtitle}>Оформление заказа</p>
+              </div>
+            </header>
 
-        <div className={styles.content}>
+            <div className={styles.content}>
           <div className={styles.stepGroup}>
             <div className={styles.stepHeader}>
               <span className={styles.stepNumber}>1</span>
@@ -254,7 +272,9 @@ export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalP
             {isLoading ? 'Отправка...' : 'Оплатить заказ'}
             {!isLoading && <ArrowRight size={20} />}
           </button>
-        </div>
+          </div>
+          </>
+        )}
       </div>
     </div>
   );

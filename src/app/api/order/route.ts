@@ -20,15 +20,27 @@ export async function POST(request: Request) {
       }
     }
 
+    const escapeHtml = (unsafe: string) => {
+      return (unsafe || '').replace(/[&<"']/g, function (m) {
+        switch (m) {
+          case '&': return '&amp;';
+          case '<': return '&lt;';
+          case '>': return '&gt;';
+          case '"': return '&quot;';
+          default: return '&#039;';
+        }
+      });
+    };
+
     const message = `
 🌟 <b>Новый заказ!</b>
     
-<b>Услуга:</b> ${service}
-<b>Способ связи:</b> ${contactMethod}
-<b>Контакт:</b> ${contactInfo}
+<b>Услуга:</b> ${escapeHtml(service)}
+<b>Способ связи:</b> ${escapeHtml(contactMethod)}
+<b>Контакт:</b> ${escapeHtml(contactInfo)}
 
 <b>Описание:</b>
-${description || 'Не указано'}
+${escapeHtml(description) || 'Не указано'}
     `;
 
     // 1. Send the text message
