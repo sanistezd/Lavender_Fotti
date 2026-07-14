@@ -341,4 +341,13 @@
   .title {
     font-size: 1.4rem;
   }
+  .closeBtn {
+    width: 30px;
+    height: 30px;
+    top: 1rem;
+    right: 1rem;
+  }
+  .header {
+    padding-right: 1.5rem;
+  }
 }

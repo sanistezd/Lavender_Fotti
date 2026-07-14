@@ -43,7 +43,7 @@ export default function Services() {
     },
     {
       id: 1,
-      title: "Редактирование фотографии",
+      title: "Редактирование фотографий",
       price: "1190₽",
       description: [
         "Аккуратное улучшение фото",
