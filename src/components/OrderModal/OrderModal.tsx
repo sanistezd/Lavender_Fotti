@@ -5,7 +5,7 @@ import { X, ImagePlus, Sparkles, ArrowRight, FileImage, Trash2, Send, Mail, Lock
 
 const VkIcon = ({ size = 24 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <path d="M7.79 3.3H5.05c.13 6.24 3.25 9.99 8.72 9.99h.31v-3.57c2.01.2 3.53 1.67 4.14 3.57h2.84c-.78-2.84-2.83-4.41-4.11-5.01 1.28-.74 3.08-2.54 3.51-4.98h-2.58c-.56 1.98-2.22 3.78-3.8 3.95V3.3H11.5v6.92c-1.6-.4-3.62-2.34-3.71-6.92Z" transform="translate(1, 3.5)" />
+    <path d="M7.79 3.3H5.05c.13 6.24 3.25 9.99 8.72 9.99h.31v-3.57c2.01.2 3.53 1.67 4.14 3.57h2.84c-.78-2.84-2.83-4.41-4.11-5.01 1.28-.74 3.08-2.54 3.51-4.98h-2.58c-.56 1.98-2.22 3.78-3.8 3.95V3.3H11.5v6.92c-1.6-.4-3.62-2.34-3.71-6.92Z" transform="scale(1.2) translate(0, 2)" />
   </svg>
 );
 
