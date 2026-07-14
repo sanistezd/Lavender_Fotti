@@ -1,7 +1,13 @@
 'use client';
 import { useEffect, useState, useRef } from 'react';
 import styles from './OrderModal.module.css';
-import { X, ImagePlus, Sparkles, ArrowRight, FileImage, Trash2 } from 'lucide-react';
+import { X, ImagePlus, Sparkles, ArrowRight, FileImage, Trash2, Send, Mail, Lock } from 'lucide-react';
+
+const VkIcon = ({ size = 24 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M21.2 6.54c.2-.68 0-1.18-.9-1.18h-2.68c-.76 0-1.1.4-1.28.84 0 0-1.36 3.32-3.28 5.46-.62.62-.9.8-1.28.8-.2 0-.32-.2-.32-.8V6.54c0-.76-.22-1.18-.92-1.18h-3.4c-.52 0-.84.38-.84.74 0 .78 1.18.96 1.3 3.16v4.78c0 .96-.18 1.14-.56 1.14-.98 0-3.38-3.34-4.8-7.16-.3-.86-.6-1.2-1.36-1.2H1.6C.74 6.54.56 6.94.56 7.38c0 .8 1.02 4.74 4.76 9.98 2.48 3.56 5.96 5.48 9.12 5.48 1.9 0 2.12-.42 2.12-1.16v-2.68c0-.86.18-1.04.8-1.04.46 0 1.24.24 3.08 2.02 2.1 2.1 2.46 3.04 3.6 3.04h2.68c.86 0 1.28-.42 1.04-1.26-.28-.84-1.32-2.14-2.7-3.68-.76-.9-1.9-1.88-2.24-2.32-.48-.6-.36-.86 0-1.42 0 0 3.96-5.58 4.38-7.46z" />
+  </svg>
+);
 
 interface OrderModalProps {
   isOpen: boolean;
@@ -12,6 +18,7 @@ interface OrderModalProps {
 export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalProps) {
   const [files, setFiles] = useState<{file: File, name: string, preview: string}[]>([]);
   const [paymentType, setPaymentType] = useState('full'); // 'full' or 'after'
+  const [contactMethod, setContactMethod] = useState<'telegram' | 'vk' | 'email'>('telegram');
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -120,11 +127,53 @@ export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalP
               <span className={styles.stepNumber}>3</span>
               <span className={styles.stepTitle}>Укажите контакты для связи</span>
             </div>
+            
+            <div className={styles.contactSelectors}>
+              <div 
+                className={`${styles.contactMethod} ${contactMethod === 'telegram' ? styles.contactMethodActive : ''}`}
+                onClick={() => setContactMethod('telegram')}
+              >
+                <div className={styles.contactIconCircle}>
+                  <Send size={24} className={contactMethod === 'telegram' ? styles.iconGold : styles.iconGray} />
+                </div>
+                <span>Telegram</span>
+              </div>
+              
+              <div 
+                className={`${styles.contactMethod} ${contactMethod === 'vk' ? styles.contactMethodActive : ''}`}
+                onClick={() => setContactMethod('vk')}
+              >
+                <div className={styles.contactIconCircle}>
+                  <div className={contactMethod === 'vk' ? styles.iconGold : styles.iconGray}><VkIcon size={24} /></div>
+                </div>
+                <span>VK</span>
+              </div>
+
+              <div 
+                className={`${styles.contactMethod} ${contactMethod === 'email' ? styles.contactMethodActive : ''}`}
+                onClick={() => setContactMethod('email')}
+              >
+                <div className={styles.contactIconCircle}>
+                  <Mail size={24} className={contactMethod === 'email' ? styles.iconGold : styles.iconGray} />
+                </div>
+                <span>Email</span>
+              </div>
+            </div>
+
             <input 
               type="text" 
               className={styles.input} 
-              placeholder="Telegram, WhatsApp или Email..." 
+              placeholder={
+                contactMethod === 'telegram' ? 'Введите ваш @username в Telegram' :
+                contactMethod === 'vk' ? 'Введите ссылку на профиль VK' :
+                'Введите Email'
+              } 
             />
+            
+            <div className={styles.contactNote}>
+              <Lock size={16} className={styles.lockIcon} />
+              <p>Мы используем контакт только для связи по вашему заказу.</p>
+            </div>
           </div>
 
           <div className={styles.stepGroup}>
