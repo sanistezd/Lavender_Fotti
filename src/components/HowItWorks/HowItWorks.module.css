@@ -77,6 +77,8 @@
   flex-shrink: 0;
   box-shadow: var(--shadow-subtle);
   transition: all 0.3s ease;
+  line-height: 1;
+  padding-top: 4px; /* Visually center the serif font */
 }
 
 .step:hover .stepNumber {
@@ -154,6 +156,7 @@
     width: 60px;
     height: 60px;
     font-size: 1.5rem;
+    padding-top: 3px;
   }
   
   .step {
