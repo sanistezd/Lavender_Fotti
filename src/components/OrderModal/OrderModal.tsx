@@ -41,6 +41,20 @@ export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalP
   if (!isOpen) return null;
 
   const isPremium = serviceName?.includes('Premium');
+  
+  let maxFiles = 10;
+  if (serviceName?.includes('Быстрое')) maxFiles = 3;
+  if (serviceName?.includes('Редактирование')) maxFiles = 5;
+
+  let basePrice = 0;
+  if (isPremium) basePrice = 3000;
+  else if (serviceName?.includes('Быстрое')) basePrice = 1490;
+  else if (serviceName?.includes('Редактирование')) basePrice = 1190;
+
+  let totalPrice = basePrice;
+  if (serviceName?.includes('Редактирование') && files.length > 2) {
+    totalPrice += (files.length - 2) * 200;
+  }
 
   const handleFileClick = () => {
     fileInputRef.current?.click();
@@ -54,7 +68,14 @@ export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalP
         preview: URL.createObjectURL(file)
       }));
       
-      setFiles(prev => [...prev, ...newFiles]);
+      setFiles(prev => {
+        const combined = [...prev, ...newFiles];
+        if (combined.length > maxFiles) {
+          alert(`Для услуги «${serviceName}» можно загрузить не более ${maxFiles} фотографий.`);
+          return combined.slice(0, maxFiles);
+        }
+        return combined;
+      });
     }
   };
 
@@ -137,7 +158,7 @@ export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalP
             <div className={styles.stepHeader}>
               <span className={styles.stepNumber}>1</span>
               <span className={styles.stepTitle}>
-                Загрузите фотографии <span className={styles.premiumHint}>(можно несколько)</span>
+                Загрузите фотографии <span className={styles.premiumHint}>(До {maxFiles} изображений)</span>
               </span>
             </div>
             
@@ -269,7 +290,7 @@ export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalP
           </div>
 
           <button className={styles.submitBtn} onClick={handleSubmit} disabled={isLoading}>
-            {isLoading ? 'Отправка...' : 'Оплатить заказ'}
+            {isLoading ? 'Отправка...' : `Оплатить заказ • ${totalPrice.toLocaleString('ru-RU')} ₽`}
             {!isLoading && <ArrowRight size={20} />}
           </button>
           </div>
