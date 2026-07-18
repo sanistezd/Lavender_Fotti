@@ -13,6 +13,8 @@ export async function POST(request: Request) {
     const description = formData.get('description') as string;
     const contactMethod = formData.get('contactMethod') as string;
     const contactInfo = formData.get('contactInfo') as string;
+    const customerName = formData.get('customerName') as string;
+    const price = formData.get('price') as string;
 
     const files: File[] = [];
     for (const [key, value] of formData.entries()) {
@@ -51,7 +53,8 @@ export async function POST(request: Request) {
 
     let message = `🌟 <b>Новый заказ!</b>
 
-<b>Услуга:</b> ${escapeHtml(service)}
+${customerName ? `<b>Имя:</b> ${escapeHtml(customerName)}\n` : ''}<b>Услуга:</b> ${escapeHtml(service)}
+<b>Цена:</b> ${price ? escapeHtml(price) + (price.includes('Обсуждается') ? '' : ' ₽') : 'Не указана'}
 <b>Способ связи:</b> ${escapeHtml(contactMethod)}
 <b>Контакт:</b> ${formattedContact}
 

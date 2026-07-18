@@ -36,7 +36,9 @@ export default function Footer() {
       formData.append('service', 'Индивидуальный заказ');
       formData.append('description', 'Заявка из футера (Нужен индивидуальный заказ)');
       formData.append('contactMethod', contactMethod);
-      formData.append('contactInfo', `Имя: ${name} | Контакт: ${contact}`);
+      formData.append('contactInfo', contact);
+      formData.append('customerName', name);
+      formData.append('price', 'Обсуждается индивидуально');
 
       const res = await fetch('/api/order', {
         method: 'POST',

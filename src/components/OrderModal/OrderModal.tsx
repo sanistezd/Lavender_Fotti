@@ -98,6 +98,7 @@ export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalP
       formData.append('description', description);
       formData.append('contactMethod', contactMethod);
       formData.append('contactInfo', contactInfo);
+      formData.append('price', totalPrice.toLocaleString('ru-RU'));
       
       files.forEach((f, i) => {
         formData.append(`file${i}`, f.file);
