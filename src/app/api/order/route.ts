@@ -86,40 +86,32 @@ ${escapeHtml(description) || 'Не указано'}`;
       return NextResponse.json({ error: 'Failed to send' }, { status: 500 });
     }
 
-    // 2. Send all files as one media group right after
+    // 2. Send files in parallel — don't block the success response
     if (files.length > 0) {
       const messageId = textData.result.message_id;
 
-      if (files.length === 1) {
-        const tgFormData = new FormData();
-        tgFormData.append('chat_id', TELEGRAM_CHAT_ID);
-        tgFormData.append('reply_to_message_id', messageId.toString());
-        tgFormData.append('document', files[0]);
+      const filePromises = files.map(async (file, i) => {
+        try {
+          const tgFormData = new FormData();
+          tgFormData.append('chat_id', TELEGRAM_CHAT_ID);
+          tgFormData.append('reply_to_message_id', messageId.toString());
+          tgFormData.append('document', file);
 
-        await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument`, {
-          method: 'POST',
-          body: tgFormData,
-        });
-      } else {
-        const tgFormData = new FormData();
-        tgFormData.append('chat_id', TELEGRAM_CHAT_ID);
-        tgFormData.append('reply_to_message_id', messageId.toString());
+          const res = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument`, {
+            method: 'POST',
+            body: tgFormData,
+          });
 
-        const mediaArray = files.map((_f, i) => ({
-          type: 'document' as const,
-          media: `attach://file${i}`,
-        }));
+          if (!res.ok) {
+            const errData = await res.text();
+            console.error(`File ${i} (${file.name}) send error:`, errData);
+          }
+        } catch (err) {
+          console.error(`File ${i} upload error:`, err);
+        }
+      });
 
-        tgFormData.append('media', JSON.stringify(mediaArray));
-        files.forEach((f, i) => {
-          tgFormData.append(`file${i}`, f);
-        });
-
-        await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMediaGroup`, {
-          method: 'POST',
-          body: tgFormData,
-        });
-      }
+      await Promise.all(filePromises);
     }
 
     return NextResponse.json({ success: true });
