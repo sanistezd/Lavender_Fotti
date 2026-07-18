@@ -62,6 +62,7 @@ export default function Services() {
         <h2 className={styles.title}>Наши услуги</h2>
         <img src="/wing-right.png" alt="Right wing" className={styles.wingRight} />
       </div>
+      <p className={styles.sectionSubtitle}>Выберите одну или несколько услуг под вашу задачу.</p>
       
       <div className={styles.cardsContainer}>
         {services.map((service) => (

@@ -12,7 +12,15 @@
   align-items: flex-end; /* Align to the bottom of the letters */
   justify-content: center;
   gap: 0.1rem; /* Make them almost touch the letters */
+  margin-bottom: 0.5rem;
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: #666;
   margin-bottom: 4rem;
+  text-align: center;
+  font-weight: 400;
 }
 
 .title {
