@@ -51,10 +51,13 @@ export async function POST(request: Request) {
       formattedContact = `<a href="mailto:${contactInfo.trim()}">${escapeHtml(contactInfo)}</a>`;
     }
 
+    const nameLine = customerName ? `<b>Имя:</b> ${escapeHtml(customerName)}
+` : '';
+
     let message = `🌟 <b>Новый заказ!</b>
 
-${customerName ? `<b>Имя:</b> ${escapeHtml(customerName)}\n` : ''}<b>Услуга:</b> ${escapeHtml(service)}
-<b>Цена:</b> ${price ? escapeHtml(price) + (price.includes('Обсуждается') ? '' : ' ₽') : 'Не указана'}
+${nameLine}<b>Услуга:</b> ${escapeHtml(service)}
+<b>Цена:</b> ${price ? escapeHtml(price) + ((price || '').includes('Обсуждается') ? '' : ' ₽') : 'Не указана'}
 <b>Способ связи:</b> ${escapeHtml(contactMethod)}
 <b>Контакт:</b> ${formattedContact}
 
