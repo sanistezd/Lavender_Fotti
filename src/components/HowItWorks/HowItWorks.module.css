@@ -78,6 +78,8 @@
   box-shadow: var(--shadow-subtle);
   transition: all 0.3s ease;
   line-height: 1;
+  font-variant-numeric: lining-nums;
+  padding-bottom: 6px;
 }
 
 .step:hover .stepNumber {
@@ -155,6 +157,7 @@
     width: 60px;
     height: 60px;
     font-size: 1.5rem;
+    padding-bottom: 4px;
   }
   
   .step {
