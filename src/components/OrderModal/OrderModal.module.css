@@ -99,6 +99,7 @@
   justify-content: center;
   font-weight: 600;
   color: var(--color-gold-dark);
+  flex-shrink: 0;
 }
 
 .stepTitle {
