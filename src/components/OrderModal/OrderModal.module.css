@@ -64,6 +64,7 @@
 .headerText {
   display: flex;
   flex-direction: column;
+  padding-right: 3rem;
 }
 
 .title {
