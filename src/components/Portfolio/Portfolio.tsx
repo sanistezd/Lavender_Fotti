@@ -39,19 +39,28 @@ const examples: PortfolioItem[] = [
     id: 3, 
     category: 'Редактирование', 
     isPremium: false, 
-    title: 'Редактирование авто', 
+    title: 'Улучшение фото', 
     type: 'before-after', 
-    srcBefore: '/porsche-before.jpg', 
-    srcAfter: '/porsche-after.jpg' 
+    srcBefore: '/cat2-before.jpg', 
+    srcAfter: '/cat2-after.jpg' 
   },
   { 
     id: 4, 
     category: 'Редактирование', 
     isPremium: false, 
-    title: 'Улучшение фото', 
+    title: 'Цветокоррекция', 
     type: 'before-after', 
-    srcBefore: '/cat2-before.jpg', 
-    srcAfter: '/cat2-after.jpg' 
+    srcBefore: '/tree-before.jpg', 
+    srcAfter: '/tree-after.jpg' 
+  },
+  { 
+    id: 5, 
+    category: 'Редактирование', 
+    isPremium: false, 
+    title: 'Редактирование авто', 
+    type: 'before-after', 
+    srcBefore: '/porsche-before.jpg', 
+    srcAfter: '/porsche-after.jpg' 
   }
 ];
 
