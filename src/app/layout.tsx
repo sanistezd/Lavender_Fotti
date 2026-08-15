@@ -13,7 +13,7 @@ const inter = Inter({
 
 export const metadata = {
   title: "Fotty Motion",
-  description: "Fotty Motion - сервис по оживлению и обработке фотографий.",
+  description: "Сервис по оживлению и обработке фотографий.",
 };
 
 export const viewport = {
