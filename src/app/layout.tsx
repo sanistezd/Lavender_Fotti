@@ -14,6 +14,14 @@ const inter = Inter({
 export const metadata = {
   title: "Fotty Motion",
   description: "Сервис по оживлению и обработке фотографий.",
+  openGraph: {
+    title: "Fotty Motion",
+    description: "Сервис по оживлению и обработке фотографий.",
+    url: "https://fottymotion.ru",
+    siteName: "Fotty Motion",
+    locale: "ru_RU",
+    type: "website",
+  },
 };
 
 export const viewport = {
