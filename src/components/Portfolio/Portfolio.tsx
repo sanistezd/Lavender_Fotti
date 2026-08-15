@@ -24,7 +24,16 @@ const examples: PortfolioItem[] = [
     title: 'Анимация', 
     type: 'before-after', 
     srcBefore: '/cat-before.jpg', 
-    srcAfter: '/premium1.mp4' 
+    srcAfter: '/cat-after.mp4' 
+  },
+  { 
+    id: 2, 
+    category: 'Оживление', 
+    isPremium: false, 
+    title: 'Оживление пейзажа', 
+    type: 'before-after', 
+    srcBefore: '/landscape-before.jpg', 
+    srcAfter: '/fast1.mp4' 
   }
 ];
 
