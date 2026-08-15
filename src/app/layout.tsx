@@ -13,6 +13,10 @@ const inter = Inter({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://fottymotion.ru"),
+  alternates: {
+    canonical: "/",
+  },
   title: "Fotty Motion",
   description: "Сервис по оживлению и обработке фотографий",
   openGraph: {
