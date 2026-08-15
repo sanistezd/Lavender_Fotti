@@ -3,10 +3,10 @@ import { useState } from 'react';
 import { X, Sparkles } from 'lucide-react';
 import styles from './Portfolio.module.css';
 
-const categories = ['Все', 'Оживление', 'Редактирование'];
+const categories = ['Оживление', 'Редактирование'];
 
 const examples = [
-  { id: 1, category: 'Оживление', isPremium: true, title: 'Оживление пейзажа', type: 'video', src: '/premium1.mp4' },
+  { id: 1, category: 'Оживление', isPremium: true, title: 'Анимация кота', type: 'before-after', srcBefore: '/cat-before.jpg', srcAfter: '/cat-after.mp4' },
   { id: 2, category: 'Оживление', isPremium: false, title: 'Анимация портрета', type: 'video', src: '/fast1.mp4' },
   { id: 3, category: 'Редактирование', isPremium: false, title: 'Цветокоррекция', type: 'image', src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&h=800&fit=crop' },
   { id: 4, category: 'Оживление', isPremium: true, title: 'Видео-коллаж', type: 'video', src: '/fast1.mp4' },
@@ -15,12 +15,10 @@ const examples = [
 ];
 
 export default function Portfolio() {
-  const [activeTab, setActiveTab] = useState('Все');
+  const [activeTab, setActiveTab] = useState('Оживление');
   const [selectedMedia, setSelectedMedia] = useState<{type: string, src: string} | null>(null);
 
-  const filteredExamples = activeTab === 'Все' 
-    ? examples 
-    : examples.filter(ex => ex.category === activeTab);
+  const filteredExamples = examples.filter(ex => ex.category === activeTab);
 
   return (
     <section id="portfolio" className={styles.section}>
@@ -41,7 +39,15 @@ export default function Portfolio() {
       <div className={styles.grid}>
         {filteredExamples.map(item => (
           <div key={item.id} className={`${styles.item} animate-fade-in`}>
-            {item.type === 'video' ? (
+            {item.type === 'before-after' ? (
+              <div className={styles.splitContainer}>
+                <img src={item.srcBefore} alt="Before" className={styles.beforeImage} />
+                <video src={item.srcAfter} autoPlay loop muted playsInline className={styles.afterVideo} />
+                <div className={styles.splitLine}>
+                  <div className={styles.splitBadge}>ДО / ПОСЛЕ</div>
+                </div>
+              </div>
+            ) : item.type === 'video' ? (
               <video 
                 src={item.src} 
                 className={styles.itemImage} 
@@ -63,7 +69,7 @@ export default function Portfolio() {
             )}
             <div 
               className={styles.itemOverlay} 
-              onClick={() => setSelectedMedia({ type: item.type, src: item.src })}
+              onClick={() => setSelectedMedia({ type: item.type === 'before-after' ? 'video' : item.type, src: item.type === 'before-after' && item.srcAfter ? item.srcAfter : item.src || '' })}
             >
               <div className={styles.overlayContent}>
                 <h3 className={styles.itemTitle}>{item.title}</h3>
