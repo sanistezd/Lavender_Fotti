@@ -29,7 +29,7 @@ const examples: PortfolioItem[] = [
   { 
     id: 2, 
     category: 'Оживление', 
-    isPremium: false, 
+    isPremium: true, 
     title: 'Оживление пейзажа', 
     type: 'before-after', 
     srcBefore: '/landscape-before.jpg', 
