@@ -300,8 +300,13 @@
 }
 
 @media (max-width: 768px) {
+  .grid {
+    gap: 4rem;
+  }
+  
   .beforeAfterLayout {
     flex-direction: column;
+    gap: 1rem;
   }
   
   .itemSpan2 {

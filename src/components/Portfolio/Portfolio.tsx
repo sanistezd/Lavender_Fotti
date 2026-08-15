@@ -94,6 +94,11 @@ export default function Portfolio() {
                 <div className={styles.mediaWrapper}>
                   <img src={item.srcBefore} alt="Before" className={styles.mediaContent} />
                   <span className={styles.mediaLabel}>ДО</span>
+                  {item.isPremium && (
+                    <div className={styles.premiumBadge}>
+                      <Sparkles size={14} className={styles.sparkleIcon} /> Premium
+                    </div>
+                  )}
                 </div>
                 
                 <div className={styles.arrowContainer}>
@@ -108,12 +113,6 @@ export default function Portfolio() {
                   )}
                   <span className={styles.mediaLabel}>ПОСЛЕ</span>
                   
-                  {item.isPremium && (
-                    <div className={styles.premiumBadge}>
-                      <Sparkles size={14} className={styles.sparkleIcon} /> Premium
-                    </div>
-                  )}
-
                   <div 
                     className={styles.clickOverlay} 
                     onClick={() => setSelectedMedia({ type: item.srcAfter?.endsWith('.mp4') ? 'video' : 'image', src: item.srcAfter || '' })}
