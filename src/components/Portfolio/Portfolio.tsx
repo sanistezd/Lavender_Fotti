@@ -34,6 +34,24 @@ const examples: PortfolioItem[] = [
     type: 'before-after', 
     srcBefore: '/landscape-before.jpg', 
     srcAfter: '/landscape-after.mp4' 
+  },
+  { 
+    id: 3, 
+    category: 'Редактирование', 
+    isPremium: false, 
+    title: 'Редактирование авто', 
+    type: 'before-after', 
+    srcBefore: '/porsche-before.jpg', 
+    srcAfter: '/porsche-after.jpg' 
+  },
+  { 
+    id: 4, 
+    category: 'Редактирование', 
+    isPremium: false, 
+    title: 'Улучшение фото', 
+    type: 'before-after', 
+    srcBefore: '/cat2-before.jpg', 
+    srcAfter: '/cat2-after.jpg' 
   }
 ];
 
@@ -74,7 +92,11 @@ export default function Portfolio() {
                 </div>
                 
                 <div className={styles.mediaWrapper}>
-                  <video src={item.srcAfter} autoPlay loop muted playsInline className={styles.mediaContent} />
+                  {item.srcAfter?.endsWith('.mp4') ? (
+                    <video src={item.srcAfter} autoPlay loop muted playsInline className={styles.mediaContent} />
+                  ) : (
+                    <img src={item.srcAfter} alt="After" className={styles.mediaContent} />
+                  )}
                   <span className={styles.mediaLabel}>ПОСЛЕ</span>
                   
                   {item.isPremium && (
@@ -85,7 +107,7 @@ export default function Portfolio() {
 
                   <div 
                     className={styles.clickOverlay} 
-                    onClick={() => setSelectedMedia({ type: 'video', src: item.srcAfter || '' })}
+                    onClick={() => setSelectedMedia({ type: item.srcAfter?.endsWith('.mp4') ? 'video' : 'image', src: item.srcAfter || '' })}
                   >
                     <span className={styles.expandHint}>Нажмите, чтобы открыть</span>
                   </div>
