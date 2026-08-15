@@ -21,9 +21,9 @@ const examples: PortfolioItem[] = [
     id: 1, 
     category: 'Оживление', 
     isPremium: true, 
-    title: 'Анимация кота', 
+    title: 'Анимация', 
     type: 'before-after', 
-    srcBefore: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=600&h=800&fit=crop', 
+    srcBefore: '/cat-before.jpg', 
     srcAfter: '/premium1.mp4' 
   }
 ];
