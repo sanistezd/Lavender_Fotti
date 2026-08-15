@@ -5,13 +5,27 @@ import styles from './Portfolio.module.css';
 
 const categories = ['Оживление', 'Редактирование'];
 
-const examples = [
-  { id: 1, category: 'Оживление', isPremium: true, title: 'Анимация кота', type: 'before-after', srcBefore: '/cat-before.jpg', srcAfter: '/cat-after.mp4' },
-  { id: 2, category: 'Оживление', isPremium: false, title: 'Анимация портрета', type: 'video', src: '/fast1.mp4' },
-  { id: 3, category: 'Редактирование', isPremium: false, title: 'Цветокоррекция', type: 'image', src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&h=800&fit=crop' },
-  { id: 4, category: 'Оживление', isPremium: true, title: 'Видео-коллаж', type: 'video', src: '/fast1.mp4' },
-  { id: 5, category: 'Оживление', isPremium: false, title: 'Оживление питомца', type: 'video', src: '/premium1.mp4' },
-  { id: 6, category: 'Редактирование', isPremium: false, title: 'Ретушь фото', type: 'image', src: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=600&h=800&fit=crop' },
+interface PortfolioItem {
+  id: number;
+  category: string;
+  isPremium: boolean;
+  title: string;
+  type: string;
+  src?: string;
+  srcBefore?: string;
+  srcAfter?: string;
+}
+
+const examples: PortfolioItem[] = [
+  { 
+    id: 1, 
+    category: 'Оживление', 
+    isPremium: true, 
+    title: 'Анимация кота', 
+    type: 'before-after', 
+    srcBefore: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=600&h=800&fit=crop', 
+    srcAfter: '/premium1.mp4' 
+  }
 ];
 
 export default function Portfolio() {

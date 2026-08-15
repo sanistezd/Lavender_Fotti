@@ -165,16 +165,27 @@
 }
 
 .splitContainer {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
 }
 
 .beforeImage, .afterVideo {
+  position: absolute;
+  top: 0;
   width: 50%;
   height: 100%;
   object-fit: cover;
+}
+
+.beforeImage {
+  left: 0;
+}
+
+.afterVideo {
+  right: 0;
 }
 
 .splitLine {
