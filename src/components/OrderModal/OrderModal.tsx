@@ -322,8 +322,11 @@ export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalP
             />
             
             <div className={styles.contactNote}>
-              <Lock size={16} className={styles.lockIcon} />
-              <p>Мы используем контакт только для связи по вашему заказу.</p>
+              <Lock size={16} className={styles.lockIcon} style={{ marginTop: '2px' }} />
+              <div>
+                <p>Мы используем контакт только для связи по вашему заказу.</p>
+                <p>✎ Правки включены - условия зависят от выбранной услуги.</p>
+              </div>
             </div>
           </div>
 
@@ -344,8 +347,8 @@ export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalP
                 />
                 <div className={styles.radioCustom}></div>
                 <div className={styles.paymentText}>
-                  <strong>Оплатить сразу 100%</strong>
-                  <span>После оплаты мы сразу приступим к выполнению вашего заказа</span>
+                  <strong>Полная оплата</strong>
+                  <span>После оплаты ваш заказ поступит в работу</span>
                 </div>
               </label>
             </div>

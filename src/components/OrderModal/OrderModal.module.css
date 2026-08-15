@@ -206,7 +206,7 @@
 
 .contactNote {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.5rem;
   margin-top: 1rem;
   color: #888;
