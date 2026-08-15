@@ -154,6 +154,7 @@
   aspect-ratio: 4/5;
   background-color: #eee;
   cursor: pointer;
+  border: 2px solid var(--color-gold);
 }
 
 .itemImage {
