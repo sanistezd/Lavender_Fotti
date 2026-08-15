@@ -14,11 +14,10 @@ const inter = Inter({
 
 export const metadata = {
   title: "Fotty Motion",
-  description: "Сервис по оживлению и обработке фотографий.",
+  description: "Сервис по оживлению и обработке фотографий",
   openGraph: {
     title: "Fotty Motion",
-    description: "Сервис по оживлению и обработке фотографий.",
-    url: "https://fottymotion.ru",
+    description: "Сервис по оживлению и обработке фотографий",
     siteName: "Fotty Motion",
     images: [
       {
@@ -34,7 +33,7 @@ export const metadata = {
   twitter: {
     card: "summary",
     title: "Fotty Motion",
-    description: "Сервис по оживлению и обработке фотографий.",
+    description: "Сервис по оживлению и обработке фотографий",
     images: ["https://fottymotion.ru/icon.png"],
   },
 };
