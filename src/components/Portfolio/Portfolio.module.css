@@ -157,8 +157,8 @@
   border: 2px solid var(--color-gold);
 }
 
-.itemWide {
-  grid-column: 1 / -1;
+.itemSpan2 {
+  grid-column: span 2;
   aspect-ratio: auto;
   background: transparent;
   box-shadow: none;
@@ -299,6 +299,10 @@
 @media (max-width: 768px) {
   .beforeAfterLayout {
     flex-direction: column;
+  }
+  
+  .itemSpan2 {
+    grid-column: 1 / -1;
   }
   
   .arrowContainer {

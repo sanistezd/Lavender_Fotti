@@ -52,7 +52,7 @@ export default function Portfolio() {
 
       <div className={styles.grid}>
         {filteredExamples.map(item => (
-          <div key={item.id} className={`${styles.item} ${item.type === 'before-after' ? styles.itemWide : ''} animate-fade-in`}>
+          <div key={item.id} className={`${styles.item} ${item.type === 'before-after' ? styles.itemSpan2 : ''} animate-fade-in`}>
             {item.type === 'before-after' ? (
               <div className={styles.beforeAfterLayout}>
                 <div className={styles.mediaWrapper}>
