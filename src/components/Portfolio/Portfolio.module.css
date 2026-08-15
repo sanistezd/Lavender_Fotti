@@ -157,6 +157,16 @@
   border: 2px solid var(--color-gold);
 }
 
+.itemWide {
+  grid-column: 1 / -1;
+  aspect-ratio: auto;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  overflow: visible;
+  cursor: default;
+}
+
 .itemImage {
   width: 100%;
   height: 100%;
@@ -164,54 +174,84 @@
   transition: transform 0.5s ease;
 }
 
-.splitContainer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.beforeImage, .afterVideo {
-  position: absolute;
-  top: 0;
-  width: 50%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.beforeImage {
-  left: 0;
-}
-
-.afterVideo {
-  right: 0;
-}
-
-.splitLine {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 2px;
-  background: var(--color-gold);
-  z-index: 5;
-  transform: translateX(-50%);
+.beforeAfterLayout {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
+  width: 100%;
 }
 
-.splitBadge {
-  background: var(--color-gold);
-  color: white;
-  padding: 4px 10px;
-  border-radius: 12px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  white-space: nowrap;
-  letter-spacing: 1px;
+.mediaWrapper {
+  position: relative;
+  flex: 1;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid var(--color-gold);
+  box-shadow: var(--shadow-subtle);
+  aspect-ratio: 4/3;
+  display: flex;
 }
+
+.mediaContent {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #eee;
+}
+
+.mediaLabel {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--color-gold-dark);
+  padding: 0.4rem 1.5rem;
+  border-radius: 20px;
+  font-weight: bold;
+  font-family: var(--font-playfair), serif;
+  font-size: 1.2rem;
+  border: 1px solid var(--color-gold);
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.arrowContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 60px;
+}
+
+.arrowIcon {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.clickOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  transition: background 0.3s ease;
+}
+
+.mediaWrapper:hover .clickOverlay {
+  background: rgba(0,0,0,0.3);
+}
+
+.mediaWrapper:hover .expandHint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 .itemImageAnimated {
   width: 100%;
@@ -254,4 +294,15 @@
 .itemCategory {
   font-size: 0.9rem;
   color: var(--color-gold-light);
+}
+
+@media (max-width: 768px) {
+  .beforeAfterLayout {
+    flex-direction: column;
+  }
+  
+  .arrowContainer {
+    width: 40px;
+    transform: rotate(90deg);
+  }
 }

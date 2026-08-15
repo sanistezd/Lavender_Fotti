@@ -52,13 +52,27 @@ export default function Portfolio() {
 
       <div className={styles.grid}>
         {filteredExamples.map(item => (
-          <div key={item.id} className={`${styles.item} animate-fade-in`}>
+          <div key={item.id} className={`${styles.item} ${item.type === 'before-after' ? styles.itemWide : ''} animate-fade-in`}>
             {item.type === 'before-after' ? (
-              <div className={styles.splitContainer}>
-                <img src={item.srcBefore} alt="Before" className={styles.beforeImage} />
-                <video src={item.srcAfter} autoPlay loop muted playsInline className={styles.afterVideo} />
-                <div className={styles.splitLine}>
-                  <div className={styles.splitBadge}>ДО / ПОСЛЕ</div>
+              <div className={styles.beforeAfterLayout}>
+                <div className={styles.mediaWrapper}>
+                  <img src={item.srcBefore} alt="Before" className={styles.mediaContent} />
+                  <span className={styles.mediaLabel}>ДО</span>
+                </div>
+                
+                <div className={styles.arrowContainer}>
+                  <img src="/arrow.png" alt="Вправо" className={styles.arrowIcon} />
+                </div>
+                
+                <div className={styles.mediaWrapper}>
+                  <video src={item.srcAfter} autoPlay loop muted playsInline className={styles.mediaContent} />
+                  <span className={styles.mediaLabel}>ПОСЛЕ</span>
+                  <div 
+                    className={styles.clickOverlay} 
+                    onClick={() => setSelectedMedia({ type: 'video', src: item.srcAfter || '' })}
+                  >
+                    <span className={styles.expandHint}>Нажмите, чтобы открыть</span>
+                  </div>
                 </div>
               </div>
             ) : item.type === 'video' ? (
@@ -81,16 +95,19 @@ export default function Portfolio() {
                 <Sparkles size={14} className={styles.sparkleIcon} /> Premium
               </div>
             )}
-            <div 
-              className={styles.itemOverlay} 
-              onClick={() => setSelectedMedia({ type: item.type === 'before-after' ? 'video' : item.type, src: item.type === 'before-after' && item.srcAfter ? item.srcAfter : item.src || '' })}
-            >
-              <div className={styles.overlayContent}>
-                <h3 className={styles.itemTitle}>{item.title}</h3>
-                <span className={styles.itemCategory}>{item.category}</span>
-                <span className={styles.expandHint}>Нажмите, чтобы открыть</span>
+            
+            {item.type !== 'before-after' && (
+              <div 
+                className={styles.itemOverlay} 
+                onClick={() => setSelectedMedia({ type: item.type, src: item.src || '' })}
+              >
+                <div className={styles.overlayContent}>
+                  <h3 className={styles.itemTitle}>{item.title}</h3>
+                  <span className={styles.itemCategory}>{item.category}</span>
+                  <span className={styles.expandHint}>Нажмите, чтобы открыть</span>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         ))}
       </div>
