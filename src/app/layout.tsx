@@ -19,6 +19,13 @@ export const metadata = {
     description: "Сервис по оживлению и обработке фотографий.",
     url: "https://fottymotion.ru",
     siteName: "Fotty Motion",
+    images: [
+      {
+        url: "https://fottymotion.ru/icon.png",
+        width: 1024,
+        height: 1024,
+      }
+    ],
     locale: "ru_RU",
     type: "website",
   },
