@@ -21,9 +21,10 @@ export const metadata = {
     siteName: "Fotty Motion",
     images: [
       {
-        url: "https://fottymotion.ru/icon.png",
-        width: 1024,
-        height: 1024,
+        url: "https://fottymotion.ru/mascot.png",
+        width: 512,
+        height: 512,
+        alt: "Fotty Motion",
       }
     ],
     locale: "ru_RU",
