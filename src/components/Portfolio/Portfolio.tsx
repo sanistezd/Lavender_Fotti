@@ -33,7 +33,7 @@ const examples: PortfolioItem[] = [
     title: 'Оживление пейзажа', 
     type: 'before-after', 
     srcBefore: '/landscape-before.jpg', 
-    srcAfter: '/fast1.mp4' 
+    srcAfter: '/landscape-after.mp4' 
   }
 ];
 
