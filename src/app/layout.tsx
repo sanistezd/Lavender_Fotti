@@ -12,7 +12,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Fotty Motion | Оживление и обработка фотографий",
+  title: "Fotty Motion",
   description: "Профессиональное редактирование и оживление фотографий.",
 };
 
