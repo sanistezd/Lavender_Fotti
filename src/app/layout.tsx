@@ -47,10 +47,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru" className={`${playfair.variable} ${inter.variable}`}>
-      <body>
+      <head>
         <Script
           id="yandex-metrika"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               (function(m,e,t,r,i,k,a){
@@ -64,6 +64,8 @@ export default function RootLayout({
             `,
           }}
         />
+      </head>
+      <body>
         <noscript>
           <div>
             <img src="https://mc.yandex.ru/watch/111640506" style={{ position: "absolute", left: "-9999px" }} alt="" />
