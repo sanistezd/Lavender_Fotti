@@ -189,11 +189,22 @@ export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalP
             <div className={styles.successIcon}>
               <Sparkles size={48} className={styles.star} />
             </div>
-            <h2>Спасибо за ваш заказ!</h2>
-            <p>Мы получили вашу заявку и уже приступили к работе.</p>
-            <p className={styles.successSubtext}>
-              В ближайшее время мы свяжемся с вами по указанному контакту ({contactInfo}) для подтверждения деталей.
-            </p>
+            {serviceName?.includes('Индивидуальный') ? (
+              <>
+                <h2>Спасибо за заявку!</h2>
+                <p className={styles.successSubtext}>
+                  В ближайшее время мы свяжемся с вами по указанному контакту ({contactInfo}), чтобы обсудить детали индивидуального заказа.
+                </p>
+              </>
+            ) : (
+              <>
+                <h2>Спасибо за ваш заказ!</h2>
+                <p>Мы получили вашу заявку.</p>
+                <p className={styles.successSubtext}>
+                  В ближайшее время мы свяжемся с вами по указанному контакту ({contactInfo}), чтобы подтвердить детали заказа.
+                </p>
+              </>
+            )}
             <button className={styles.submitBtn} onClick={onClose}>
               Вернуться на сайт
             </button>
