@@ -1,12 +1,43 @@
 import { NextResponse } from 'next/server';
 
-const TELEGRAM_BOT_TOKEN = '8886885060:AAECUYufrMRMsa5gNLbrKEfSm1mixKMnJIc';
-const TELEGRAM_CHAT_ID = '-1003861088020';
+const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '8886885060:AAECUYufrMRMsa5gNLbrKEfSm1mixKMnJIc';
+const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID || '-1003861088020';
 
 export const maxDuration = 60;
 
+const rateLimit = new Map<string, { count: number, timestamp: number }>();
+const LIMIT = 5; 
+const WINDOW_MS = 60 * 1000;
+
 export async function POST(request: Request) {
   try {
+    const origin = request.headers.get('origin');
+    if (origin && !origin.includes('fottymotion.ru') && !origin.includes('localhost') && !origin.includes('vercel.app')) {
+      return new NextResponse('Forbidden', { status: 403 });
+    }
+
+    const ip = request.headers.get('x-forwarded-for') || 'unknown';
+    const now = Date.now();
+    const requestData = rateLimit.get(ip);
+    
+    if (requestData && (now - requestData.timestamp) < WINDOW_MS) {
+      if (requestData.count >= LIMIT) {
+        return new NextResponse('Too many requests, please try again later.', { status: 429 });
+      }
+      rateLimit.set(ip, { count: requestData.count + 1, timestamp: requestData.timestamp });
+    } else {
+      rateLimit.set(ip, { count: 1, timestamp: now });
+    }
+
+    if (Math.random() < 0.1) {
+      const entries = Array.from(rateLimit.entries());
+      for (const [key, value] of entries) {
+        if (now - value.timestamp > WINDOW_MS) {
+          rateLimit.delete(key);
+        }
+      }
+    }
+
     const formData = await request.formData();
     
     const service = formData.get('service') as string;
