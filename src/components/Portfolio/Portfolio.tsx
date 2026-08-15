@@ -1,17 +1,17 @@
 'use client';
 import { useState } from 'react';
-import { X } from 'lucide-react';
+import { X, Sparkles } from 'lucide-react';
 import styles from './Portfolio.module.css';
 
-const categories = ['Все', 'Premium', 'Быстрое', 'Редактирование'];
+const categories = ['Все', 'Оживление', 'Редактирование'];
 
 const examples = [
-  { id: 1, category: 'Premium', title: 'Оживление пейзажа', type: 'video', src: '/premium1.mp4' },
-  { id: 2, category: 'Быстрое', title: 'Анимация портрета', type: 'video', src: '/fast1.mp4' },
-  { id: 3, category: 'Редактирование', title: 'Цветокоррекция', type: 'image', src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&h=800&fit=crop' },
-  { id: 4, category: 'Premium', title: 'Видео-коллаж', type: 'video', src: '/fast1.mp4' },
-  { id: 5, category: 'Быстрое', title: 'Оживление питомца', type: 'video', src: '/premium1.mp4' },
-  { id: 6, category: 'Редактирование', title: 'Ретушь фото', type: 'image', src: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=600&h=800&fit=crop' },
+  { id: 1, category: 'Оживление', isPremium: true, title: 'Оживление пейзажа', type: 'video', src: '/premium1.mp4' },
+  { id: 2, category: 'Оживление', isPremium: false, title: 'Анимация портрета', type: 'video', src: '/fast1.mp4' },
+  { id: 3, category: 'Редактирование', isPremium: false, title: 'Цветокоррекция', type: 'image', src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&h=800&fit=crop' },
+  { id: 4, category: 'Оживление', isPremium: true, title: 'Видео-коллаж', type: 'video', src: '/fast1.mp4' },
+  { id: 5, category: 'Оживление', isPremium: false, title: 'Оживление питомца', type: 'video', src: '/premium1.mp4' },
+  { id: 6, category: 'Редактирование', isPremium: false, title: 'Ретушь фото', type: 'image', src: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=600&h=800&fit=crop' },
 ];
 
 export default function Portfolio() {
@@ -54,6 +54,12 @@ export default function Portfolio() {
               <img src={item.src} alt={item.title} className={styles.itemImageAnimated} />
             ) : (
               <img src={item.src} alt={item.title} className={styles.itemImage} />
+            )}
+            
+            {item.isPremium && (
+              <div className={styles.premiumBadge}>
+                <Sparkles size={14} className={styles.sparkleIcon} /> Premium
+              </div>
             )}
             <div 
               className={styles.itemOverlay} 

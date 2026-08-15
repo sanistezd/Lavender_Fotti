@@ -93,6 +93,27 @@
   transform: translateY(0);
 }
 
+.premiumBadge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--color-gold);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+}
+
+.sparkleIcon {
+  color: white;
+}
+
 .tabBtn {
   padding: 0.8rem 2rem;
   border-radius: 30px;
