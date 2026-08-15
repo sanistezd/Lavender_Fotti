@@ -92,17 +92,18 @@ export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalP
   const isPremium = serviceName?.includes('Premium');
   
   let maxFiles = 10;
-  if (serviceName?.includes('Быстрое')) maxFiles = 3;
+  if (isPremium) maxFiles = 3;
+  if (serviceName?.includes('Быстрое')) maxFiles = 1;
   if (serviceName?.includes('Редактирование')) maxFiles = 5;
 
   let basePrice = 0;
-  if (isPremium) basePrice = 3000;
+  if (isPremium) basePrice = 3500;
   else if (serviceName?.includes('Быстрое')) basePrice = 1490;
   else if (serviceName?.includes('Редактирование')) basePrice = 1190;
 
   let totalPrice = basePrice;
   if (serviceName?.includes('Редактирование') && files.length > 2) {
-    totalPrice += (files.length - 2) * 200;
+    totalPrice += (files.length - 2) * 250;
   }
 
   const handleFileClick = () => {
