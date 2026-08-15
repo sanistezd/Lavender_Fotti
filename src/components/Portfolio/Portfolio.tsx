@@ -76,6 +76,13 @@ export default function Portfolio() {
                 <div className={styles.mediaWrapper}>
                   <video src={item.srcAfter} autoPlay loop muted playsInline className={styles.mediaContent} />
                   <span className={styles.mediaLabel}>ПОСЛЕ</span>
+                  
+                  {item.isPremium && (
+                    <div className={styles.premiumBadge}>
+                      <Sparkles size={14} className={styles.sparkleIcon} /> Premium
+                    </div>
+                  )}
+
                   <div 
                     className={styles.clickOverlay} 
                     onClick={() => setSelectedMedia({ type: 'video', src: item.srcAfter || '' })}
@@ -99,7 +106,7 @@ export default function Portfolio() {
               <img src={item.src} alt={item.title} className={styles.itemImage} />
             )}
             
-            {item.isPremium && (
+            {item.type !== 'before-after' && item.isPremium && (
               <div className={styles.premiumBadge}>
                 <Sparkles size={14} className={styles.sparkleIcon} /> Premium
               </div>
