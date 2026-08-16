@@ -193,9 +193,28 @@ ${escapeHtml(description) || 'Не указано'}`;
           return NextResponse.json({ success: true, confirmation_url: ykData.confirmation.confirmation_url });
         } else {
           console.error('YooKassa API Error:', ykData);
+          await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              chat_id: TELEGRAM_CHAT_ID,
+              text: `❌ Ошибка создания платежа ЮKassa:\n<pre>${JSON.stringify(ykData, null, 2)}</pre>`,
+              parse_mode: 'HTML',
+            }),
+          });
+          return NextResponse.json({ error: 'Ошибка платежной системы' }, { status: 500 });
         }
-      } catch (err) {
+      } catch (err: any) {
         console.error('YooKassa fetch error:', err);
+        await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              chat_id: TELEGRAM_CHAT_ID,
+              text: `❌ Ошибка сети ЮKassa:\n${err.message}`,
+            }),
+        });
+        return NextResponse.json({ error: 'Ошибка сети платежной системы' }, { status: 500 });
       }
     }
 
