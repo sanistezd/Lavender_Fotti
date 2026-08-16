@@ -164,7 +164,12 @@ export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalP
       });
       
       if (res.ok) {
-        setIsSubmitted(true);
+        const data = await res.json();
+        if (data.confirmation_url) {
+          window.location.href = data.confirmation_url;
+        } else {
+          setIsSubmitted(true);
+        }
       } else {
         const errData = await res.text();
         console.error('Submit error:', errData);

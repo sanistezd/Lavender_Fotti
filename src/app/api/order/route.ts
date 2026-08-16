@@ -82,7 +82,11 @@ export async function POST(request: Request) {
       formattedContact = `<a href="mailto:${contactInfo.trim()}">${escapeHtml(contactInfo)}</a>`;
     }
 
-    let message = `🌟 <b>Новый заказ!</b>
+    const cleanPrice = price ? price.replace(/\D/g, '') : '';
+    const numericPrice = parseInt(cleanPrice, 10);
+    const requiresPayment = numericPrice > 0 && process.env.YOOKASSA_SHOP_ID;
+
+    let message = `🌟 <b>Новый заказ!</b> ${requiresPayment ? '⏳ (ОЖИДАЕТ ОПЛАТЫ)' : ''}
 
 ${customerName ? `<b>Имя:</b> ${escapeHtml(customerName)}\n` : ''}<b>Услуга:</b> ${escapeHtml(service)}
 <b>Цена:</b> ${price ? escapeHtml(price) + (price.includes('Обсуждается') ? '' : ' ₽') : 'Не указана'}
@@ -147,6 +151,51 @@ ${escapeHtml(description) || 'Не указано'}`;
           method: 'POST',
           body: tgFormData,
         });
+      }
+    }
+
+    // 3. YooKassa Integration
+    if (requiresPayment && process.env.YOOKASSA_SECRET_KEY) {
+      const authHeader = 'Basic ' + Buffer.from(`${process.env.YOOKASSA_SHOP_ID}:${process.env.YOOKASSA_SECRET_KEY}`).toString('base64');
+      const idempotenceKey = Date.now().toString() + Math.random().toString(36).substring(7);
+      
+      const paymentPayload = {
+        amount: {
+          value: numericPrice.toFixed(2),
+          currency: 'RUB'
+        },
+        capture: true,
+        confirmation: {
+          type: 'redirect',
+          return_url: 'https://fottymotion.ru/payment-success'
+        },
+        description: `Заказ: ${service.substring(0, 100)}`,
+        metadata: {
+          telegram_message_id: textData.result.message_id.toString(),
+          contact: contactInfo.substring(0, 200)
+        }
+      };
+
+      try {
+        const ykRes = await fetch('https://api.yookassa.ru/v3/payments', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Idempotence-Key': idempotenceKey,
+            'Authorization': authHeader
+          },
+          body: JSON.stringify(paymentPayload)
+        });
+
+        const ykData = await ykRes.json();
+        
+        if (ykRes.ok && ykData.confirmation && ykData.confirmation.confirmation_url) {
+          return NextResponse.json({ success: true, confirmation_url: ykData.confirmation.confirmation_url });
+        } else {
+          console.error('YooKassa API Error:', ykData);
+        }
+      } catch (err) {
+        console.error('YooKassa fetch error:', err);
       }
     }
 
