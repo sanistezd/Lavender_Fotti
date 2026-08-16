@@ -99,7 +99,7 @@ export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalP
   let basePrice = 0;
   if (isPremium) basePrice = 3500;
   else if (serviceName?.includes('Быстрое')) basePrice = 1490;
-  else if (serviceName?.includes('Редактирование')) basePrice = 1190;
+  else if (serviceName?.includes('Редактирование')) basePrice = 2;
 
   let totalPrice = basePrice;
   if (serviceName?.includes('Редактирование') && files.length > 2) {
