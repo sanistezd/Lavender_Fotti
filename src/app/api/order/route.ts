@@ -167,7 +167,7 @@ ${escapeHtml(description) || 'Не указано'}`;
         capture: true,
         confirmation: {
           type: 'redirect',
-          return_url: 'https://fottymotion.ru/payment-success'
+          return_url: 'https://fottymotion.ru/'
         },
         description: `Заказ: ${service.substring(0, 100)}`,
         metadata: {
