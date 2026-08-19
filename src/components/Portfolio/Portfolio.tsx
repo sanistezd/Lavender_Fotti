@@ -21,22 +21,33 @@ interface PortfolioItem {
 
 const examples: PortfolioItem[] = [
   { 
-    id: 1, 
+    id: 6, 
     category: 'Оживление', 
     isPremium: true, 
-    title: 'Анимация', 
-    type: 'before-after', 
-    srcBefore: '/cat-before.jpg', 
-    srcAfter: '/cat-after.mp4' 
+    title: 'Объединение фото', 
+    type: 'merge-before-after', 
+    srcBefore1: '/merge-woman.jpg', 
+    srcBefore2: '/merge-man.jpg',
+    srcPlus: '/plus.png',
+    srcAfter: '/hug.mp4' 
   },
   { 
     id: 2, 
     category: 'Оживление', 
-    isPremium: true, 
+    isPremium: false, 
     title: 'Оживление пейзажа', 
     type: 'before-after', 
     srcBefore: '/landscape-before.jpg', 
     srcAfter: '/landscape-after.mp4' 
+  },
+  { 
+    id: 1, 
+    category: 'Оживление', 
+    isPremium: false, 
+    title: 'Анимация', 
+    type: 'before-after', 
+    srcBefore: '/cat-before.jpg', 
+    srcAfter: '/cat-after.mp4' 
   },
   { 
     id: 3, 
@@ -64,17 +75,6 @@ const examples: PortfolioItem[] = [
     type: 'before-after', 
     srcBefore: '/porsche-before.jpg', 
     srcAfter: '/porsche-after.jpg' 
-  },
-  { 
-    id: 6, 
-    category: 'Оживление', 
-    isPremium: true, 
-    title: 'Объединение фото', 
-    type: 'merge-before-after', 
-    srcBefore1: '/merge-woman.jpg', 
-    srcBefore2: '/merge-man.jpg',
-    srcPlus: '/plus.png',
-    srcAfter: '/hug.mp4' 
   }
 ];
 
