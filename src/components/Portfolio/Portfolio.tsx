@@ -106,7 +106,7 @@ export default function Portfolio() {
             <div key={item.id} className={`${styles.item} ${item.type.includes('before-after') ? styles.itemSpan2 : ''} animate-fade-in`}>
             {item.type.includes('before-after') ? (
               <div className={styles.beforeAfterLayout}>
-                <div className={`${styles.mediaWrapper} ${item.type === 'merge-before-after' ? styles.mergeMediaWrapperLeft : ''}`}>
+                <div className={styles.mediaWrapper}>
                   {item.type === 'merge-before-after' ? (
                     <div className={styles.mergeBeforeContainer}>
                       <img src={item.srcBefore1} alt="Before 1" className={styles.mergeImage} />
@@ -160,7 +160,7 @@ export default function Portfolio() {
               <img src={item.src} alt={item.title} className={styles.itemImage} />
             )}
             
-            {!item.type.includes('before-after') && item.isPremium && (
+            {item.type !== 'before-after' && item.isPremium && (
               <div className={styles.premiumBadge}>
                 <Sparkles size={14} className={styles.sparkleIcon} /> Premium
               </div>
