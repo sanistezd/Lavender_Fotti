@@ -26,9 +26,9 @@ const examples: PortfolioItem[] = [
     isPremium: true, 
     title: 'Объединение фото', 
     type: 'merge-before-after', 
-    srcBefore1: '/merge-woman.jpg', 
-    srcBefore2: '/merge-man.jpg',
-    srcPlus: '/plus.png',
+    srcBefore1: '/merge-girl.jpg', 
+    srcBefore2: '/merge-guy.jpg',
+    srcPlus: '/plus-icon.png',
     srcAfter: '/hug.mp4' 
   },
   { 

@@ -24,7 +24,7 @@ export default function Hero() {
     <section className={styles.hero}>
       <header className={`${styles.header} ${isScrolled ? styles.headerScrolled : ''}`}>
         <div className={styles.logo}>
-          <img src="/gold-mascot.png" alt="Fotty Motion Logo" className={styles.logoMascot} onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+          <img src="/gold-mascot-new.png" alt="Fotty Motion Logo" className={styles.logoMascot} onError={(e) => { e.currentTarget.style.display = 'none'; }} />
           Fotty Motion
         </div>
         
