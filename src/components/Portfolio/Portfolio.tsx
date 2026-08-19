@@ -14,6 +14,9 @@ interface PortfolioItem {
   src?: string;
   srcBefore?: string;
   srcAfter?: string;
+  srcBefore1?: string;
+  srcBefore2?: string;
+  srcPlus?: string;
 }
 
 const examples: PortfolioItem[] = [
@@ -61,6 +64,17 @@ const examples: PortfolioItem[] = [
     type: 'before-after', 
     srcBefore: '/porsche-before.jpg', 
     srcAfter: '/porsche-after.jpg' 
+  },
+  { 
+    id: 6, 
+    category: 'Оживление', 
+    isPremium: true, 
+    title: 'Объединение фото', 
+    type: 'merge-before-after', 
+    srcBefore1: '/merge-woman.jpg', 
+    srcBefore2: '/merge-man.jpg',
+    srcPlus: '/plus.png',
+    srcAfter: '/cat-after.mp4' 
   }
 ];
 
@@ -89,11 +103,19 @@ export default function Portfolio() {
       <div className={styles.portfolioWrapper}>
         <div className={styles.grid}>
           {filteredExamples.map(item => (
-            <div key={item.id} className={`${styles.item} ${item.type === 'before-after' ? styles.itemSpan2 : ''} animate-fade-in`}>
-            {item.type === 'before-after' ? (
+            <div key={item.id} className={`${styles.item} ${item.type.includes('before-after') ? styles.itemSpan2 : ''} animate-fade-in`}>
+            {item.type.includes('before-after') ? (
               <div className={styles.beforeAfterLayout}>
                 <div className={styles.mediaWrapper}>
-                  <img src={item.srcBefore} alt="Before" className={styles.mediaContent} />
+                  {item.type === 'merge-before-after' ? (
+                    <div className={styles.mergeBeforeContainer}>
+                      <img src={item.srcBefore1} alt="Before 1" className={styles.mergeImage} />
+                      <img src={item.srcPlus} alt="+" className={styles.mergePlus} />
+                      <img src={item.srcBefore2} alt="Before 2" className={styles.mergeImage} />
+                    </div>
+                  ) : (
+                    <img src={item.srcBefore} alt="Before" className={styles.mediaContent} />
+                  )}
                   <span className={styles.mediaLabel}>ДО</span>
                   {item.isPremium && (
                     <div className={styles.premiumBadge}>
