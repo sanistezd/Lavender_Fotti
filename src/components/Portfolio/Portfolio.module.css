@@ -210,6 +210,10 @@
   justify-content: center;
 }
 
+.mergeMediaWrapperLeft {
+  flex: 1.4 !important;
+}
+
 .mergeBeforeContainer {
   display: flex;
   align-items: center;
@@ -217,11 +221,11 @@
   height: 100%;
   width: 100%;
   gap: 0.5rem;
-  aspect-ratio: 4/5;
+  padding: 3.5rem 0 1rem 0;
 }
 
 .mergeImage {
-  width: 42%;
+  width: 44%;
   height: 100%;
   object-fit: cover;
   border-radius: 12px;
@@ -348,6 +352,10 @@
   .beforeAfterLayout {
     flex-direction: column;
     gap: 1rem;
+  }
+  
+  .mergeMediaWrapperLeft {
+    flex: 1 !important;
   }
   
   .itemSpan2 {
