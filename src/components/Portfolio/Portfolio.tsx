@@ -86,9 +86,10 @@ export default function Portfolio() {
         ))}
       </div>
 
-      <div className={styles.grid}>
-        {filteredExamples.map(item => (
-          <div key={item.id} className={`${styles.item} ${item.type === 'before-after' ? styles.itemSpan2 : ''} animate-fade-in`}>
+      <div className={styles.portfolioWrapper}>
+        <div className={styles.grid}>
+          {filteredExamples.map(item => (
+            <div key={item.id} className={`${styles.item} ${item.type === 'before-after' ? styles.itemSpan2 : ''} animate-fade-in`}>
             {item.type === 'before-after' ? (
               <div className={styles.beforeAfterLayout}>
                 <div className={styles.mediaWrapper}>
@@ -156,6 +157,7 @@ export default function Portfolio() {
             )}
           </div>
         ))}
+        </div>
       </div>
 
       {selectedMedia && (
