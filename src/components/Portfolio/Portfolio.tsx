@@ -72,21 +72,21 @@ export default function Portfolio() {
 
   return (
     <section id="portfolio" className={styles.section}>
-      <div className={styles.portfolioWrapper}>
-        <h2 className={styles.title}>Примеры работ</h2>
-        
-        <div className={styles.tabs}>
-          {categories.map(cat => (
-            <button 
-              key={cat}
-              className={`${styles.tabBtn} ${activeTab === cat ? styles.activeTab : ''}`}
-              onClick={() => setActiveTab(cat)}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
+      <h2 className={styles.title}>Примеры работ</h2>
+      
+      <div className={styles.tabs}>
+        {categories.map(cat => (
+          <button 
+            key={cat}
+            className={`${styles.tabBtn} ${activeTab === cat ? styles.activeTab : ''}`}
+            onClick={() => setActiveTab(cat)}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
 
+      <div className={styles.portfolioWrapper}>
         <div className={styles.grid}>
           {filteredExamples.map(item => (
             <div key={item.id} className={`${styles.item} ${item.type === 'before-after' ? styles.itemSpan2 : ''} animate-fade-in`}>

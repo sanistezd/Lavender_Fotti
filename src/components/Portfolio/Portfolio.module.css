@@ -140,7 +140,8 @@
 
 .portfolioWrapper {
   background-color: #F0E6D2;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.08);
   padding: 4rem 3rem;
   border-radius: 40px;
   width: 100%;
