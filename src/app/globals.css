@@ -58,3 +58,11 @@ button {
   animation: fadeIn 0.8s ease-out forwards;
 }
 
+/* MIUI Force Dark Mode Bypass Hack */
+@media (prefers-color-scheme: dark) {
+  html, body {
+    background: #FEFCF6 !important;
+    color: #1A1A1A !important;
+  }
+}
+

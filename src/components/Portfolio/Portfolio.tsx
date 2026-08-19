@@ -109,12 +109,12 @@ export default function Portfolio() {
                 <div className={item.type === 'merge-before-after' ? styles.mediaWrapperMergeLeft : styles.mediaWrapper}>
                   {item.type === 'merge-before-after' ? (
                     <div className={styles.mergeBeforeContainer}>
-                      <img src={item.srcBefore1} alt="Before 1" className={styles.mergeImage} />
-                      <img src={item.srcPlus} alt="+" className={styles.mergePlus} />
-                      <img src={item.srcBefore2} alt="Before 2" className={styles.mergeImage} />
+                      <img src={item.srcBefore1} alt="Before 1" loading="lazy" className={styles.mergeImage} />
+                      <img src={item.srcPlus} alt="+" loading="lazy" className={styles.mergePlus} />
+                      <img src={item.srcBefore2} alt="Before 2" loading="lazy" className={styles.mergeImage} />
                     </div>
                   ) : (
-                    <img src={item.srcBefore} alt="Before" className={styles.mediaContent} />
+                    <img src={item.srcBefore} alt="Before" loading="lazy" className={styles.mediaContent} />
                   )}
                   <span className={styles.mediaLabel}>ДО</span>
                 </div>
@@ -127,7 +127,7 @@ export default function Portfolio() {
                   {item.srcAfter?.endsWith('.mp4') ? (
                     <video src={item.srcAfter} poster={item.srcBefore || item.srcBefore1} autoPlay loop muted playsInline webkit-playsinline="true" className={styles.mediaContent} />
                   ) : (
-                    <img src={item.srcAfter} alt="After" className={styles.mediaContent} />
+                    <img src={item.srcAfter} alt="After" loading="lazy" className={styles.mediaContent} />
                   )}
                   <span className={styles.mediaLabel}>ПОСЛЕ</span>
                   
