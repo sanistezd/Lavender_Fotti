@@ -74,7 +74,7 @@ const examples: PortfolioItem[] = [
     srcBefore1: '/merge-woman.jpg', 
     srcBefore2: '/merge-man.jpg',
     srcPlus: '/plus.png',
-    srcAfter: '/cat-after.mp4' 
+    srcAfter: '/hug.mp4' 
   }
 ];
 
