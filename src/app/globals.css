@@ -12,6 +12,8 @@
   --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.05);
   --shadow-card: 0 10px 30px rgba(203, 170, 92, 0.1);
   --shadow-hover: 0 15px 40px rgba(203, 170, 92, 0.2);
+
+  color-scheme: light;
 }
 
 * {
@@ -24,7 +26,7 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: var(--color-bg-ivory);
+  background-color: var(--color-bg-ivory) !important;
   color: var(--color-text-dark);
   font-family: var(--font-inter), sans-serif;
   scroll-behavior: smooth;
