@@ -30,7 +30,8 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #E3D2A9; 
+  background-color: transparent !important; 
+  background-image: linear-gradient(#E3D2A9, #E3D2A9) !important;
   padding: 0.4rem 5rem;
   z-index: 2000; /* Increased to stay above full screen menu */
   box-shadow: 0 10px 30px rgba(108, 93, 75, 0.25);
@@ -39,7 +40,8 @@
 
 .headerScrolled {
   padding: 0.2rem 5rem;
-  background-color: #E3D2A9; /* Make it completely solid */
+  background-color: transparent !important; 
+  background-image: linear-gradient(#E3D2A9, #E3D2A9) !important;
   box-shadow: 0 15px 35px rgba(108, 93, 75, 0.3);
 }
 

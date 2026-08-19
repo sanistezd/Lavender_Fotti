@@ -125,7 +125,7 @@ export default function Portfolio() {
                 
                 <div className={styles.mediaWrapper}>
                   {item.srcAfter?.endsWith('.mp4') ? (
-                    <video src={item.srcAfter} autoPlay loop muted playsInline webkit-playsinline="true" className={styles.mediaContent} />
+                    <video src={item.srcAfter} poster={item.srcBefore || item.srcBefore1} autoPlay loop muted playsInline webkit-playsinline="true" className={styles.mediaContent} />
                   ) : (
                     <img src={item.srcAfter} alt="After" className={styles.mediaContent} />
                   )}
@@ -148,6 +148,7 @@ export default function Portfolio() {
             ) : item.type === 'video' ? (
               <video 
                 src={item.src} 
+                poster={item.srcBefore || item.srcBefore1}
                 autoPlay 
                 loop 
                 muted 

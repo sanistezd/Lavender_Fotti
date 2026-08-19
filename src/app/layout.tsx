@@ -59,6 +59,8 @@ export default function RootLayout({
   return (
     <html lang="ru" className={`${playfair.variable} ${inter.variable}`}>
       <head>
+        <meta name="color-scheme" content="only light" />
+        <meta name="supported-color-schemes" content="light" />
         <Script
           id="yandex-metrika"
           strategy="beforeInteractive"
