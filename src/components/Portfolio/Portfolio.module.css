@@ -210,6 +210,30 @@
   justify-content: center;
 }
 
+.mergeBeforeContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  gap: 0.5rem;
+  aspect-ratio: 4/5;
+}
+
+.mergeImage {
+  width: 42%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border: 2px solid var(--color-gold);
+}
+
+.mergePlus {
+  width: 12%;
+  object-fit: contain;
+}
+
 .mediaContent {
   width: 100%;
   height: auto;
