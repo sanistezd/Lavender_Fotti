@@ -160,13 +160,13 @@ export default function Portfolio() {
               <img src={item.src} alt={item.title} className={styles.itemImage} />
             )}
             
-            {item.type !== 'before-after' && item.isPremium && (
+            {!item.type.includes('before-after') && item.isPremium && (
               <div className={styles.premiumBadge}>
                 <Sparkles size={14} className={styles.sparkleIcon} /> Premium
               </div>
             )}
             
-            {item.type !== 'before-after' && (
+            {!item.type.includes('before-after') && (
               <div 
                 className={styles.itemOverlay} 
                 onClick={() => setSelectedMedia({ type: item.type, src: item.src || '' })}
