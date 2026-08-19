@@ -199,12 +199,20 @@
   justify-content: center;
   gap: 1.5rem;
   width: 100%;
-  max-width: 850px;
+  max-width: 1000px;
 }
 
 .mediaWrapper {
   position: relative;
   flex: 1;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.mediaWrapperMergeLeft {
+  position: relative;
+  flex: 1.8;
   display: flex;
   align-items: stretch;
   justify-content: center;
@@ -347,6 +355,13 @@
   .beforeAfterLayout {
     flex-direction: column;
     gap: 1rem;
+  }
+  
+  .mediaWrapper,
+  .mediaWrapperMergeLeft {
+    flex: none;
+    width: 100%;
+    align-items: center;
   }
   
   .itemSpan2 {

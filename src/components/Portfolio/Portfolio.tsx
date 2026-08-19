@@ -106,7 +106,7 @@ export default function Portfolio() {
             <div key={item.id} className={`${styles.item} ${item.type.includes('before-after') ? styles.itemSpan2 : ''} animate-fade-in`}>
             {item.type.includes('before-after') ? (
               <div className={styles.beforeAfterLayout}>
-                <div className={styles.mediaWrapper}>
+                <div className={item.type === 'merge-before-after' ? styles.mediaWrapperMergeLeft : styles.mediaWrapper}>
                   {item.type === 'merge-before-after' ? (
                     <div className={styles.mergeBeforeContainer}>
                       <img src={item.srcBefore1} alt="Before 1" className={styles.mergeImage} />
