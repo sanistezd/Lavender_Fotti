@@ -358,4 +358,19 @@
     width: 40px;
     transform: rotate(90deg);
   }
+  
+  .mergeBeforeContainer {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .mergeImage {
+    width: 100%;
+    height: 40%;
+  }
+
+  .mergePlus {
+    width: auto;
+    height: 12%;
+  }
 }
