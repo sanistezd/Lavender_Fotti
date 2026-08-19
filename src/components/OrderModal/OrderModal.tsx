@@ -166,6 +166,9 @@ export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalP
       if (res.ok) {
         const data = await res.json();
         if (data.confirmation_url) {
+          if (data.payment_id) {
+            localStorage.setItem('pendingPaymentId', data.payment_id);
+          }
           window.location.href = data.confirmation_url;
         } else {
           setIsSubmitted(true);

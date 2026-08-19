@@ -167,7 +167,7 @@ ${escapeHtml(description) || 'Не указано'}`;
         capture: true,
         confirmation: {
           type: 'redirect',
-          return_url: 'https://fottymotion.ru/'
+          return_url: 'https://fottymotion.ru/payment-success'
         },
         description: `Заказ: ${service.substring(0, 100)}`,
         metadata: {
@@ -190,7 +190,11 @@ ${escapeHtml(description) || 'Не указано'}`;
         const ykData = await ykRes.json();
         
         if (ykRes.ok && ykData.confirmation && ykData.confirmation.confirmation_url) {
-          return NextResponse.json({ success: true, confirmation_url: ykData.confirmation.confirmation_url });
+          return NextResponse.json({ 
+            success: true, 
+            confirmation_url: ykData.confirmation.confirmation_url,
+            payment_id: ykData.id
+          });
         } else {
           console.error('YooKassa API Error:', ykData);
           await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
