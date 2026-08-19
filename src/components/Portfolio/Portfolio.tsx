@@ -125,7 +125,7 @@ export default function Portfolio() {
                 
                 <div className={styles.mediaWrapper}>
                   {item.srcAfter?.endsWith('.mp4') ? (
-                    <video src={item.srcAfter} autoPlay loop muted playsInline className={styles.mediaContent} />
+                    <video src={item.srcAfter} autoPlay loop muted playsInline webkit-playsinline="true" className={styles.mediaContent} />
                   ) : (
                     <img src={item.srcAfter} alt="After" className={styles.mediaContent} />
                   )}
@@ -148,11 +148,12 @@ export default function Portfolio() {
             ) : item.type === 'video' ? (
               <video 
                 src={item.src} 
-                className={styles.itemImage} 
                 autoPlay 
                 loop 
                 muted 
-                playsInline
+                playsInline 
+                webkit-playsinline="true"
+                className={styles.itemVideo} 
               />
             ) : item.type === 'animated-image' ? (
               <img src={item.src} alt={item.title} className={styles.itemImageAnimated} />
@@ -190,7 +191,7 @@ export default function Portfolio() {
           </button>
           <div className={styles.lightboxContent} onClick={e => e.stopPropagation()}>
             {selectedMedia.type === 'video' ? (
-              <video src={selectedMedia.src} controls autoPlay className={styles.lightboxMedia} />
+              <video src={selectedMedia.src} controls autoPlay playsInline webkit-playsinline="true" className={styles.lightboxMedia} />
             ) : (
               <img src={selectedMedia.src} alt="Full screen" className={styles.lightboxMedia} />
             )}
