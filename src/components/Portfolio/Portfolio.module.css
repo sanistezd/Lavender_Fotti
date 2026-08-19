@@ -1,6 +1,6 @@
 .section {
   padding: 6rem 2rem;
-  background-color: var(--color-bg-ivory);
+  
   display: flex;
   flex-direction: column;
   align-items: center;

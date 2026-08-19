@@ -232,7 +232,9 @@
 
 
 .descBox {
-  background: #F4EFE0;
+  background-color: transparent !important;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3Crect width='1' height='1' fill='%23F4EFE0'/%3E%3C/svg%3E") !important;
+  background-repeat: repeat;
   padding: 2rem 2.5rem;
   border-radius: 24px;
   max-width: 750px;
