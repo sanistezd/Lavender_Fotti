@@ -103,7 +103,7 @@ export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalP
 
   let totalPrice = basePrice;
   if (serviceName?.includes('Редактирование') && files.length > 2) {
-    totalPrice += (files.length - 2) * 250;
+    totalPrice += (files.length - 2) * 175;
   }
 
   const handleFileClick = () => {
@@ -254,6 +254,9 @@ export default function OrderModal({ isOpen, onClose, serviceName }: OrderModalP
                   <div key={idx} className={styles.fileItem}>
                     <img src={fileObj.preview} alt={fileObj.name} className={styles.filePreview} />
                     <span className={styles.fileName}>{fileObj.name}</span>
+                    {serviceName?.includes('Редактирование') && idx >= 2 && (
+                      <span style={{ fontWeight: 700, fontSize: '16px', marginRight: '10px' }}>+ 175₽</span>
+                    )}
                     <button className={styles.removeFileBtn} onClick={() => removeFile(idx)}>
                       <Trash2 size={16} />
                     </button>
