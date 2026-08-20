@@ -382,18 +382,24 @@
     display: block !important;
     width: 100% !important;
     max-width: 100% !important;
+    max-height: 500px !important;
     margin: 0 !important;
     overflow: hidden !important;
     border-radius: 20px !important;
+    border: 2px solid var(--color-gold) !important;
+    box-shadow: var(--shadow-subtle) !important;
   }
   
   .mediaContent {
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
-    min-height: 200px !important;
-    max-height: 500px !important;
+    min-height: 100% !important;
+    max-height: none !important;
     box-sizing: border-box !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
   }
   
   .itemSpan2 {
