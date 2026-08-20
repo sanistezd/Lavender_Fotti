@@ -251,8 +251,7 @@
 
 .mediaContent {
   width: 100%;
-  height: auto;
-  min-height: 250px;
+  aspect-ratio: 4/5;
   object-fit: cover;
   border-radius: 20px;
   border: 2px solid var(--color-gold);
@@ -380,7 +379,9 @@
   
   .arrowContainer {
     width: 40px;
+    height: 40px;
     transform: rotate(90deg);
+    margin: 1rem auto;
   }
   
   .mergeBeforeContainer {
