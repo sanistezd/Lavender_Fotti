@@ -147,6 +147,7 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 @media (max-width: 768px) {
@@ -180,7 +181,7 @@
   background: transparent;
   box-shadow: none;
   border: none;
-  overflow: visible;
+  overflow: hidden;
   cursor: default;
   display: flex;
   justify-content: center;
@@ -207,7 +208,8 @@
   justify-content: center;
   gap: 1.5rem;
   width: 100%;
-  max-width: 1000px;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .mediaWrapper {
@@ -216,6 +218,8 @@
   display: flex;
   align-items: stretch;
   justify-content: center;
+  overflow: hidden;
+  max-width: 100%;
 }
 
 .mediaWrapperMergeLeft {
@@ -251,7 +255,10 @@
 
 .mediaContent {
   width: 100%;
-  aspect-ratio: 4/5;
+  max-width: 100%;
+  height: auto;
+  min-height: 250px;
+  max-height: 600px;
   object-fit: cover;
   border-radius: 20px;
   border: 2px solid var(--color-gold);
@@ -364,32 +371,46 @@
   .beforeAfterLayout {
     display: block !important;
     width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
   }
   
   .mediaWrapper,
   .mediaWrapperMergeLeft {
     display: block !important;
     width: 100% !important;
+    max-width: 100% !important;
     margin: 0 !important;
+    overflow: hidden !important;
+  }
+  
+  .mediaContent {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 200px !important;
+    max-height: 500px !important;
   }
   
   .itemSpan2 {
     grid-column: 1 / -1;
     display: block !important;
+    overflow: hidden !important;
   }
   
   .arrowContainer {
-    display: flex !important;
+    display: block !important;
     width: 100% !important;
     height: 60px !important;
-    justify-content: center !important;
-    align-items: center !important;
+    text-align: center !important;
     margin: 1rem 0 !important;
   }
 
   .arrowIcon {
     width: 40px !important;
     height: 40px !important;
+    margin: 0 auto !important;
+    display: block !important;
     transform: rotate(90deg) !important;
   }
   
