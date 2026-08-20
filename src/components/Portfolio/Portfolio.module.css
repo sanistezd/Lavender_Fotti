@@ -220,6 +220,7 @@
   justify-content: center;
   overflow: hidden;
   max-width: 100%;
+  border-radius: 20px;
 }
 
 .mediaWrapperMergeLeft {
@@ -264,6 +265,7 @@
   border: 2px solid var(--color-gold);
   box-shadow: var(--shadow-subtle);
   display: block;
+  box-sizing: border-box;
 }
 
 .mediaLabel {
@@ -382,6 +384,7 @@
     max-width: 100% !important;
     margin: 0 !important;
     overflow: hidden !important;
+    border-radius: 20px !important;
   }
   
   .mediaContent {
@@ -390,6 +393,7 @@
     height: auto !important;
     min-height: 200px !important;
     max-height: 500px !important;
+    box-sizing: border-box !important;
   }
   
   .itemSpan2 {
