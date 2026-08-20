@@ -362,26 +362,35 @@
   }
   
   .beforeAfterLayout {
-    flex-direction: column;
-    gap: 1rem;
+    display: block !important;
+    width: 100% !important;
   }
   
   .mediaWrapper,
   .mediaWrapperMergeLeft {
-    flex: none;
-    width: 100%;
-    align-items: center;
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
   }
   
   .itemSpan2 {
     grid-column: 1 / -1;
+    display: block !important;
   }
   
   .arrowContainer {
-    width: 40px;
-    height: 40px;
-    transform: rotate(90deg);
-    margin: 1rem auto;
+    display: flex !important;
+    width: 100% !important;
+    height: 60px !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 1rem 0 !important;
+  }
+
+  .arrowIcon {
+    width: 40px !important;
+    height: 40px !important;
+    transform: rotate(90deg) !important;
   }
   
   .mergeBeforeContainer {
