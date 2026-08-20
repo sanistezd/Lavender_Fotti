@@ -377,22 +377,27 @@
     overflow: hidden !important;
   }
   
-  .mediaWrapper,
+  .mediaWrapper {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: 500px !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    border-radius: 20px !important;
+  }
+
   .mediaWrapperMergeLeft {
     display: block !important;
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
     overflow: hidden !important;
-    border-radius: 20px !important;
   }
   
   .mediaContent {
     width: 100% !important;
     max-width: 100% !important;
-    height: auto !important;
-    min-height: 200px !important;
-    max-height: 500px !important;
     box-sizing: border-box !important;
   }
   
